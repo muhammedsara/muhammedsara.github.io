@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interface | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>http://localhost:1313/tags/interface/</link>
+      <atom:link href="http://localhost:1313/tags/interface/index.xml" rel="self" type="application/rss+xml" />
+    <description>Interface</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Interface</title>
+      <link>http://localhost:1313/tags/interface/</link>
+    </image>
+    
+    <item>
+      <title>TM-Elektromobil-PC — Console Interface for Electric Vehicle Race</title>
+      <link>http://localhost:1313/project/tm-beta/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/tm-beta/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
+&lt;p&gt;As part of the &lt;strong&gt;TÜBİTAK Electric Vehicle Racing initiative&lt;/strong&gt;, I developed the &lt;strong&gt;TM-Elektromobil-PC&lt;/strong&gt;, a &lt;strong&gt;C# console application&lt;/strong&gt; that interfaces with electric vehicle hardware for race telemetry, command input, and real-time status updates. The interface enabled seamless communication with race systems, providing diagnostics and control during test runs.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Console-Based UI&lt;/strong&gt;: Lightweight and responsive C# command-line interface for real-time telemetry and command input.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware Communication&lt;/strong&gt;: Facilitated serial/real-time communication protocols with vehicle telemetry systems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Race Readiness&lt;/strong&gt;: Enabled testing and debugging in the field with clear feedback loops.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded Performance&lt;/strong&gt;: Optimized resource usage suitable for embedded platforms used in electric race vehicles.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Image Processing Editor (C#)</title>
+      <link>http://localhost:1313/project/imagedit/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/imagedit/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;A Windows desktop &lt;strong&gt;image editing&lt;/strong&gt; application developed in &lt;strong&gt;C#/.NET&lt;/strong&gt;. The tool provides side-by-side &lt;strong&gt;original vs. processed&lt;/strong&gt; previews with a clean, operator-style UI for quick experimentation and export.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Filters &amp;amp; Effects:&lt;/strong&gt; grayscale, blur/sharpen, tint, threshold, edge-style effects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Color Adjustments:&lt;/strong&gt; brightness/contrast, basic channel operations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crop &amp;amp; Resize:&lt;/strong&gt; interactive crop; pixel-accurate resize with aspect-ratio lock.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram &amp;amp; Info:&lt;/strong&gt; quick visual feedback for exposure and levels.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undo/Redo:&lt;/strong&gt; multi-step editing history.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I/O:&lt;/strong&gt; open common formats and export processed images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tech stack: &lt;strong&gt;C#/.NET (WinForms/WPF)&lt;/strong&gt;, custom image kernels, basic concurrency for responsive UI.&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

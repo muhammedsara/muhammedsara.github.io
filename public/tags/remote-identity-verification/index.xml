@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remote Identity Verification | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>http://localhost:1313/tags/remote-identity-verification/</link>
+      <atom:link href="http://localhost:1313/tags/remote-identity-verification/index.xml" rel="self" type="application/rss+xml" />
+    <description>Remote Identity Verification</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo_hu_f7660d29ac190f6c.png</url>
+      <title>Remote Identity Verification</title>
+      <link>http://localhost:1313/tags/remote-identity-verification/</link>
+    </image>
+    
+    <item>
+      <title>DigiVis — Digital Onboarding &amp; KYC</title>
+      <link>http://localhost:1313/project/digivis/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/digivis/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;DigiVis&lt;/strong&gt; is a next-generation &lt;strong&gt;digital onboarding solution&lt;/strong&gt; that allows organisations to perform &lt;strong&gt;remote customer acquisition&lt;/strong&gt; securely, quickly, and fully in line with regulations.&lt;br&gt;
+Built with a &lt;strong&gt;mobile-first architecture&lt;/strong&gt;, DigiVis integrates seamlessly across &lt;strong&gt;iOS and Android platforms&lt;/strong&gt;, supported by a &lt;strong&gt;cloud-based infrastructure&lt;/strong&gt; that ensures scalability and high availability.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Remote KYC &amp;amp; Identity Verification&lt;/strong&gt;: perform secure digital onboarding without physical presence.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cross-Platform SDKs&lt;/strong&gt;: ready-to-use integrations for iOS, Android, and enterprise mobile applications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud-Enabled&lt;/strong&gt;: scalable, reliable, and always accessible with enterprise-level performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Regulation-Compliant&lt;/strong&gt;: designed to meet &lt;strong&gt;legal and data protection requirements&lt;/strong&gt; for secure verification.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User-Centric Experience&lt;/strong&gt;: smooth, intuitive onboarding process completed in just a few steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;impact&#34;&gt;Impact&lt;/h3&gt;
+&lt;p&gt;DigiVis empowers industries such as &lt;strong&gt;telecommunications, banking, insurance, and public institutions&lt;/strong&gt; to accelerate their &lt;strong&gt;customer onboarding processes&lt;/strong&gt; while maintaining the &lt;strong&gt;highest standards of security and compliance&lt;/strong&gt;.&lt;br&gt;
+With its end-to-end design, DigiVis bridges the gap between &lt;strong&gt;customer convenience&lt;/strong&gt; and &lt;strong&gt;institutional trustworthiness&lt;/strong&gt;, making it a cornerstone solution for the digital age.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

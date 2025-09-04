@@ -1,0 +1,78 @@
+# ===== Site Kimliği =====
+title: "Muhammed ŞARA — AI & Computer Vision"
+baseURL: "https://musterekhesap.github.io/"
+
+############################
+## LANGUAGE
+############################
+defaultContentLanguage: en
+hasCJKLanguage: false
+defaultContentLanguageInSubdir: false
+removePathAccents: true
+
+# Çok dilli yapı (TR varsayılan, EN ikincil)
+
+
+############################
+## ADVANCED
+############################
+build:
+  writeStats: true
+enableGitInfo: true         # Son commit bilgisi (SEO ve "Updated" etiketleri için yararlı)
+summaryLength: 30
+pagination:
+  pagerSize: 10
+enableEmoji: true
+enableRobotsTXT: true
+footnotereturnlinkcontents: "<sup>^</sup>"
+ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+
+permalinks:
+  authors: "/author/:slug/"
+
+disableAliases: true
+
+outputs:
+  home: [HTML, RSS, headers, redirects, backlinks]
+  section: [HTML, RSS]
+
+imaging:
+  resampleFilter: lanczos
+  quality: 90
+  anchor: smart
+  hint: picture
+
+timeout: 600000
+
+taxonomies:
+  author: authors
+  tag: tags
+  publication_type: publication_types
+
+markup:
+  _merge: deep
+  highlight:
+    lineNos: false
+
+security:
+  _merge: deep
+
+sitemap:
+  _merge: deep
+
+# ---- Site genel parametreleri (HugoBlox tarafından da kullanılır) ----
+params:
+  site:
+    description: "AI, Bilgisayarlı Görü, Edge/Cloud ve otonom sistemler üzerine projeler, yayınlar ve notlar."
+    keywords: ["AI","Computer Vision","Edge AI","UAV","Research","Muhammed Sara"]
+  author:
+    name: "Muhammed ŞARA"
+  seo:
+    twitter:
+      card: "summary_large_image"
+      creator: "@muhammedsara0"   # varsa X/Twitter kullanıcı adın
+  theme:
+    palette: "ocean"            # istersen: minimal, forest, noir...
+  assets:
+    favicon: "static/favicon.png"    # static/ içine koy
+

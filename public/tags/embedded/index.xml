@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Embedded | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>http://localhost:1313/tags/embedded/</link>
+      <atom:link href="http://localhost:1313/tags/embedded/index.xml" rel="self" type="application/rss+xml" />
+    <description>Embedded</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Tue, 01 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Embedded</title>
+      <link>http://localhost:1313/tags/embedded/</link>
+    </image>
+    
+    <item>
+      <title>TM-Elektromobil-PC — Console Interface for Electric Vehicle Race</title>
+      <link>http://localhost:1313/project/tm-beta/</link>
+      <pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/tm-beta/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
+&lt;p&gt;As part of the &lt;strong&gt;TÜBİTAK Electric Vehicle Racing initiative&lt;/strong&gt;, I developed the &lt;strong&gt;TM-Elektromobil-PC&lt;/strong&gt;, a &lt;strong&gt;C# console application&lt;/strong&gt; that interfaces with electric vehicle hardware for race telemetry, command input, and real-time status updates. The interface enabled seamless communication with race systems, providing diagnostics and control during test runs.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Console-Based UI&lt;/strong&gt;: Lightweight and responsive C# command-line interface for real-time telemetry and command input.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware Communication&lt;/strong&gt;: Facilitated serial/real-time communication protocols with vehicle telemetry systems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Race Readiness&lt;/strong&gt;: Enabled testing and debugging in the field with clear feedback loops.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded Performance&lt;/strong&gt;: Optimized resource usage suitable for embedded platforms used in electric race vehicles.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BioVis — Biometric Identity Verification Device</title>
+      <link>http://localhost:1313/project/biovis/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/biovis/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;BioVis&lt;/strong&gt; is an advanced biometric identity verification device developed to provide &lt;strong&gt;secure, real-time, and reliable verification&lt;/strong&gt; in high-security environments.&lt;br&gt;
+The project integrates &lt;strong&gt;electronics, mechanics, software, and interface design&lt;/strong&gt; into a unified edge platform, built both for innovation and for &lt;strong&gt;large-scale deployment&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Biometric Identity Verification&lt;/strong&gt;: real-time face verification and liveness detection with high accuracy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Hardware &amp;amp; Design&lt;/strong&gt;: dedicated boards, sensors, and camera modules optimized for biometric capture.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;On-Device Processing&lt;/strong&gt;: local AI-supported decision-making with secure data communication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full-Stack Development&lt;/strong&gt;: hardware, firmware, and user interface designed cohesively for smooth operation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Certification-Ready&lt;/strong&gt;: developed in alignment with international compliance and security standards.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scalable Production&lt;/strong&gt;: architecture and design suitable for &lt;strong&gt;mass production&lt;/strong&gt; and long-term maintainability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;impact&#34;&gt;Impact&lt;/h3&gt;
+&lt;p&gt;BioVis has been successfully demonstrated in &lt;strong&gt;aviation, banking, and enterprise use cases&lt;/strong&gt;, supporting &lt;strong&gt;end-to-end identity workflows&lt;/strong&gt; such as check-in, secure access, and payment.&lt;br&gt;
+It stands out as a &lt;strong&gt;next-generation edge device&lt;/strong&gt; that blends advanced biometric verification with industrial robustness.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FourPlusOne — Mini Autonomous Vehicle (OpenZeka MARC)</title>
+      <link>http://localhost:1313/project/fourplusone/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/fourplusone/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;FourPlusOne&lt;/strong&gt; team participated in the &lt;strong&gt;OpenZeka MARC competition&lt;/strong&gt;, developing a &lt;strong&gt;mini autonomous driving system&lt;/strong&gt; capable of navigating complex tracks. The system integrated &lt;strong&gt;lane tracking (CNN), traffic sign detection (YOLO), and LIDAR-based obstacle detection&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Deep Learning&lt;/strong&gt;: CNN for lane tracking, YOLO for traffic sign recognition.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sensor Fusion&lt;/strong&gt;: LIDAR + camera for robust perception.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SLAM &amp;amp; Localization&lt;/strong&gt;: ROS-based mapping and navigation pipeline.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edge Deployment&lt;/strong&gt;: Optimized on &lt;strong&gt;NVIDIA Jetson TX2&lt;/strong&gt; with TensorFlow, OpenCV, and ROS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This project demonstrated the potential of &lt;strong&gt;autonomous driving systems&lt;/strong&gt; in constrained embedded platforms, and received recognition in the MARC competition.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

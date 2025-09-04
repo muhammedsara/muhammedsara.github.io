@@ -1,0 +1,58 @@
+# SITE SETUP
+# Docs: https://docs.hugoblox.com/
+
+# ===== Appearance =====
+appearance:
+  mode: system          # system | light | dark
+  color: emerald        # tema paleti
+
+# ===== SEO & Analytics =====
+marketing:
+  seo:
+    site_type: Person
+    local_business_type: ''
+    org_name: 'Muhammed ŞARA'
+    description: 'AI & Computer Vision specialist focused on edge/cloud AI, sensor fusion, and real-time decision systems.'
+    twitter: 'muhammedsara0'   # X/Twitter handle (sadece kullanıcı adı)
+  analytics:
+    google_analytics: ''       # GA4: G-XXXX
+    plausible: ''              # example.com
+    fathom: ''
+    pirsch: ''
+  verification:
+    google: ''                 # Search Console
+    baidu: ''
+
+# ===== Header / Navbar =====
+header:
+  navbar:
+    enable: true
+    blox: 'navbar'
+    fixed_to_top: true
+    show_search: true
+    show_theme_chooser: true
+    logo:
+    
+      text: 'Muhammed ŞARA'    # sol üstte görünen yazı (logo yoksa)
+
+# ===== Footer =====
+footer:
+  copyright:
+    notice: '© {year} Muhammed ŞARA'
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
+
+# ===== Localization =====
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+
+# ===== Site Features =====
+features:
+  math:
+    enable: false              # LaTeX gerekiyorsa true yap
+  privacy_pack:
+    enable: true               # varsayılan çerez/harici içerik uyarıları

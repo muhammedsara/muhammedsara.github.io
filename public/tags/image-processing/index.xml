@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image Processing | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>http://localhost:1313/tags/image-processing/</link>
+      <atom:link href="http://localhost:1313/tags/image-processing/index.xml" rel="self" type="application/rss+xml" />
+    <description>Image Processing</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Image Processing</title>
+      <link>http://localhost:1313/tags/image-processing/</link>
+    </image>
+    
+    <item>
+      <title>CountVis — Smart Meter Reading Application</title>
+      <link>http://localhost:1313/project/fotovis/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/fotovis/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;CountVis&lt;/strong&gt; is a &lt;strong&gt;mechanical meter reading solution&lt;/strong&gt; that transforms &lt;strong&gt;analog consumption data into digital form&lt;/strong&gt; using camera-based capture and AI-supported interpretation.&lt;br&gt;
+By converting readings into reliable digital values, CountVis helps organisations overcome &lt;strong&gt;human error, fraud, and customer disputes&lt;/strong&gt;, while enabling streamlined data integration with existing systems.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Automatic Meter Reading&lt;/strong&gt;: captures meter index values via camera and digitizes them with AI-supported processing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subscriber Identification&lt;/strong&gt;: recognizes meter serial numbers and barcodes to match with customer accounts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Proof &amp;amp; Verification&lt;/strong&gt;: stores photo evidence of each reading, reducing disputes and ensuring transparency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Loss &amp;amp; Fraud Prevention&lt;/strong&gt;: delivers accurate consumption data, helping institutions prevent administrative loss and unauthorized usage.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enterprise Integration&lt;/strong&gt;: provides seamless API-based integration into existing billing and monitoring systems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;impact&#34;&gt;Impact&lt;/h3&gt;
+&lt;p&gt;With &lt;strong&gt;CountVis&lt;/strong&gt;, utilities and service providers can significantly improve &lt;strong&gt;efficiency, accuracy, and customer trust&lt;/strong&gt;.&lt;br&gt;
+The solution reduces operational costs, enhances transparency, and ensures that consumption records reflect &lt;strong&gt;true, verifiable usage&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Image Processing Editor (C#)</title>
+      <link>http://localhost:1313/project/imagedit/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/imagedit/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
+&lt;p&gt;A Windows desktop &lt;strong&gt;image editing&lt;/strong&gt; application developed in &lt;strong&gt;C#/.NET&lt;/strong&gt;. The tool provides side-by-side &lt;strong&gt;original vs. processed&lt;/strong&gt; previews with a clean, operator-style UI for quick experimentation and export.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Filters &amp;amp; Effects:&lt;/strong&gt; grayscale, blur/sharpen, tint, threshold, edge-style effects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Color Adjustments:&lt;/strong&gt; brightness/contrast, basic channel operations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crop &amp;amp; Resize:&lt;/strong&gt; interactive crop; pixel-accurate resize with aspect-ratio lock.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Histogram &amp;amp; Info:&lt;/strong&gt; quick visual feedback for exposure and levels.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undo/Redo:&lt;/strong&gt; multi-step editing history.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I/O:&lt;/strong&gt; open common formats and export processed images.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tech stack: &lt;strong&gt;C#/.NET (WinForms/WPF)&lt;/strong&gt;, custom image kernels, basic concurrency for responsive UI.&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

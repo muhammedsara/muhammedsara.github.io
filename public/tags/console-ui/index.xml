@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Console UI | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>http://localhost:1313/tags/console-ui/</link>
+      <atom:link href="http://localhost:1313/tags/console-ui/index.xml" rel="self" type="application/rss+xml" />
+    <description>Console UI</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/logo_hu_f7660d29ac190f6c.png</url>
+      <title>Console UI</title>
+      <link>http://localhost:1313/tags/console-ui/</link>
+    </image>
+    
+    <item>
+      <title>TM-Elektromobil-PC — Console Interface for Electric Vehicle Race</title>
+      <link>http://localhost:1313/project/tm-beta/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/tm-beta/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
+&lt;p&gt;As part of the &lt;strong&gt;TÜBİTAK Electric Vehicle Racing initiative&lt;/strong&gt;, I developed the &lt;strong&gt;TM-Elektromobil-PC&lt;/strong&gt;, a &lt;strong&gt;C# console application&lt;/strong&gt; that interfaces with electric vehicle hardware for race telemetry, command input, and real-time status updates. The interface enabled seamless communication with race systems, providing diagnostics and control during test runs.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Console-Based UI&lt;/strong&gt;: Lightweight and responsive C# command-line interface for real-time telemetry and command input.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware Communication&lt;/strong&gt;: Facilitated serial/real-time communication protocols with vehicle telemetry systems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Race Readiness&lt;/strong&gt;: Enabled testing and debugging in the field with clear feedback loops.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embedded Performance&lt;/strong&gt;: Optimized resource usage suitable for embedded platforms used in electric race vehicles.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
