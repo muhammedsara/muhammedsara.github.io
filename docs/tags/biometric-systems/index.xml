@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Biometric Systems | Muhammed ŞARA — AI &amp; Computer Vision</title><link>https://muhammedsara.github.io/tags/biometric-systems/</link><atom:link href="https://muhammedsara.github.io/tags/biometric-systems/index.xml" rel="self" type="application/rss+xml"/><description>Biometric Systems</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><image><url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url><title>Biometric Systems</title><link>https://muhammedsara.github.io/tags/biometric-systems/</link></image><item><title>BioVis — Biometric Identity Verification Device</title><link>https://muhammedsara.github.io/project/biovis/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://muhammedsara.github.io/project/biovis/</guid><description>&lt;h3 id="overview"&gt;Overview&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;BioVis&lt;/strong&gt; is an advanced biometric identity verification device developed to provide &lt;strong&gt;secure, real-time, and reliable verification&lt;/strong&gt; in high-security environments.&lt;br&gt;
+The project integrates &lt;strong&gt;electronics, mechanics, software, and interface design&lt;/strong&gt; into a unified edge platform, built both for innovation and for &lt;strong&gt;large-scale deployment&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id="key-features"&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Biometric Identity Verification&lt;/strong&gt;: real-time face verification and liveness detection with high accuracy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Hardware &amp;amp; Design&lt;/strong&gt;: dedicated boards, sensors, and camera modules optimized for biometric capture.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;On-Device Processing&lt;/strong&gt;: local AI-supported decision-making with secure data communication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full-Stack Development&lt;/strong&gt;: hardware, firmware, and user interface designed cohesively for smooth operation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Certification-Ready&lt;/strong&gt;: developed in alignment with international compliance and security standards.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scalable Production&lt;/strong&gt;: architecture and design suitable for &lt;strong&gt;mass production&lt;/strong&gt; and long-term maintainability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="impact"&gt;Impact&lt;/h3&gt;
+&lt;p&gt;BioVis has been successfully demonstrated in &lt;strong&gt;aviation, banking, and enterprise use cases&lt;/strong&gt;, supporting &lt;strong&gt;end-to-end identity workflows&lt;/strong&gt; such as check-in, secure access, and payment.&lt;br&gt;
+It stands out as a &lt;strong&gt;next-generation edge device&lt;/strong&gt; that blends advanced biometric verification with industrial robustness.&lt;/p&gt;</description></item></channel></rss>
