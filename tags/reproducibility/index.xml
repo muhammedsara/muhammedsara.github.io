@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reproducibility | Muhammed ŞARA — AI &amp; Computer Vision</title><link>https://muhammedsara.github.io/tags/reproducibility/</link><atom:link href="https://muhammedsara.github.io/tags/reproducibility/index.xml" rel="self" type="application/rss+xml"/><description>Reproducibility</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><image><url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url><title>Reproducibility</title><link>https://muhammedsara.github.io/tags/reproducibility/</link></image><item><title>A Reproducible Educational Plan to Teach Mini Autonomous Race Car Programming</title><link>https://muhammedsara.github.io/publication/preprint/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://muhammedsara.github.io/publication/preprint/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reproducibility | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>https://muhammedsara.github.io/tags/reproducibility/</link>
+      <atom:link href="https://muhammedsara.github.io/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reproducibility</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Reproducibility</title>
+      <link>https://muhammedsara.github.io/tags/reproducibility/</link>
+    </image>
+    
+    <item>
+      <title>A Reproducible Educational Plan to Teach Mini Autonomous Race Car Programming</title>
+      <link>https://muhammedsara.github.io/publication/preprint/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://muhammedsara.github.io/publication/preprint/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

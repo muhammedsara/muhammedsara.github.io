@@ -1,10 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Biometric Authentication | Muhammed ŞARA — AI &amp; Computer Vision</title><link>https://muhammedsara.github.io/tags/biometric-authentication/</link><atom:link href="https://muhammedsara.github.io/tags/biometric-authentication/index.xml" rel="self" type="application/rss+xml"/><description>Biometric Authentication</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><image><url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url><title>Biometric Authentication</title><link>https://muhammedsara.github.io/tags/biometric-authentication/</link></image><item><title>PayVis — Pay by Face System</title><link>https://muhammedsara.github.io/project/payvis/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://muhammedsara.github.io/project/payvis/</guid><description>&lt;h3 id="overview"&gt;Overview&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Biometric Authentication | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>https://muhammedsara.github.io/tags/biometric-authentication/</link>
+      <atom:link href="https://muhammedsara.github.io/tags/biometric-authentication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Biometric Authentication</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Biometric Authentication</title>
+      <link>https://muhammedsara.github.io/tags/biometric-authentication/</link>
+    </image>
+    
+    <item>
+      <title>PayVis — Pay by Face System</title>
+      <link>https://muhammedsara.github.io/project/payvis/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://muhammedsara.github.io/project/payvis/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;PayVis&lt;/strong&gt; is a cutting-edge &lt;strong&gt;face recognition payment system&lt;/strong&gt; that allows users to complete their transactions &lt;strong&gt;without the need for physical cards, phones, or cash&lt;/strong&gt;. By simply verifying their identity with their face, customers can enjoy a &lt;strong&gt;faster, safer, and frictionless shopping experience&lt;/strong&gt;.&lt;/p&gt;
-&lt;h3 id="key-features"&gt;Key Features&lt;/h3&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Face-Based Authentication&lt;/strong&gt;: secure and convenient payments verified instantly by facial recognition.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Frictionless User Experience&lt;/strong&gt;: no cards or devices required — transactions are completed in seconds.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Omnichannel Integration&lt;/strong&gt;: designed for use in &lt;strong&gt;shopping malls, kiosks, retail outlets, and POS systems&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Regulation-Ready&lt;/strong&gt;: aligned with compliance standards for secure financial transactions.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Scalable &amp;amp; Practical&lt;/strong&gt;: adaptable for en&lt;/li&gt;
-&lt;/ul&gt;</description></item></channel></rss>
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

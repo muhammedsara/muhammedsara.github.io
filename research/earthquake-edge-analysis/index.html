@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deprem Araştırma Projesi - Veri Seti Analiz Dashboard v2.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-card-hover: #1e2a47;
+            --accent-primary: #00f5d4;
+            --accent-secondary: #00bbf9;
+            --accent-tertiary: #fee440;
+            --accent-warning: #f15bb5;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b3b8;
+            --text-muted: #6c757d;
+            --border-color: #2a3f5f;
+            --success: #06ffa5;
+            --error: #ff006e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 245, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 187, 249, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(254, 228, 64, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            padding: 2.5rem 0;
+            border-bottom: 3px solid var(--accent-primary);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 245, 212, 0.1) 50%, 
+                transparent 100%);
+            animation: shimmer 8s infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-50%); }
+            50% { transform: translateX(50%); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .project-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .version-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            margin-top: 1rem;
+        }
+        
+        .author-info {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .author-info strong {
+            color: var(--accent-tertiary);
+            font-weight: 600;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 40px rgba(0, 245, 212, 0.15);
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+        
+        .stat-sublabel {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .section-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title::before {
+            content: '▸';
+            color: var(--accent-secondary);
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 20px;
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 1.5rem 0;
+        }
+        
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        /* Dataset Cards */
+        .dataset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .dataset-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dataset-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .dataset-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 8px 30px rgba(0, 245, 212, 0.2);
+        }
+        
+        .dataset-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .dataset-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .dataset-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            flex: 1;
+        }
+        
+        .score-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: var(--bg-primary);
+            box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3);
+        }
+        
+        .dataset-meta {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .badge-category {
+            background: rgba(0, 245, 212, 0.15);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        
+        .badge-sensor {
+            background: rgba(0, 187, 249, 0.15);
+            border: 1px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+        
+        .badge-access {
+            background: rgba(6, 255, 165, 0.15);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+        
+        .dataset-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.2rem;
+        }
+        
+        .info-value {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .dataset-description {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(0, 187, 249, 0.05);
+            border-left: 3px solid var(--accent-secondary);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .dataset-pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+        }
+        
+        .pros, .cons {
+            padding: 0.8rem;
+            border-radius: 6px;
+        }
+        
+        .pros {
+            background: rgba(6, 255, 165, 0.05);
+            border: 1px solid rgba(6, 255, 165, 0.2);
+        }
+        
+        .cons {
+            background: rgba(255, 0, 110, 0.05);
+            border: 1px solid rgba(255, 0, 110, 0.2);
+        }
+        
+        .pros h4, .cons h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .pros h4 { color: var(--success); }
+        .cons h4 { color: var(--error); }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pros li::before {
+            content: '✓ ';
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .cons li::before {
+            content: '✗ ';
+            color: var(--error);
+            font-weight: bold;
+        }
+        
+        .dataset-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .dataset-link {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .dataset-link:hover {
+            color: var(--accent-primary);
+            gap: 0.6rem;
+        }
+        
+        .dataset-reference {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        /* Reference Section */
+        .references-section {
+            margin-top: 3rem;
+        }
+        
+        .references-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .references-toggle:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-card-hover);
+        }
+        
+        .references-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .references-content.expanded {
+            max-height: 3000px;
+        }
+        
+        .reference-list {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0 0 12px 12px;
+            padding: 2rem;
+            border-top: none;
+        }
+        
+        .reference-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(0, 245, 212, 0.03);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        .reference-item strong {
+            color: var(--accent-tertiary);
+        }
+        
+        .reference-item a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .reference-item a:hover {
+            color: var(--accent-primary);
+            text-decoration: underline;
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .comparison-table th {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(0, 245, 212, 0.05);
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            color: var(--accent-primary);
+        }
+        
+        .tab.active {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Search Bar */
+        .search-container {
+            margin: 2rem 0;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dataset-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dataset-pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent-primary);
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-primary);
+            border: none;
+            border-radius: 50%;
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 245, 212, 0.3);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0, 245, 212, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="grain-overlay"></div>
+    
+    <header class="header">
+        <div class="container header-content">
+            <div class="project-label">Akademik Araştırma Projesi</div>
+            <h1>Deprem Araştırma Projesi</h1>
+            <p class="subtitle">Mobil ve Edge Cihazlardan Deprem Tespiti - Kapsamlı Veri Seti Analizi</p>
+            <div class="version-badge">v2.0 - 19 Veri Seti Analizi</div>
+            <div class="author-info">
+                Hazırlayan: <strong>Muhammed ŞARA</strong> | Tarih: 04 Ocak 2026
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- İstatistik Kartları -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="totalDatasets">19</div>
+                <div class="stat-label">Toplam Veri Seti</div>
+                <div class="stat-sublabel">Doğrulanmış Kaynaklar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-value" id="earthquakeDatasets">6</div>
+                <div class="stat-label">Deprem Odaklı</div>
+                <div class="stat-sublabel">Birincil Veri Kaynakları</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏃</div>
+                <div class="stat-value" id="harDatasets">7</div>
+                <div class="stat-label">HAR Veri Setleri</div>
+                <div class="stat-sublabel">İnsan Aktivitesi Tanıma</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📡</div>
+                <div class="stat-value" id="additionalDatasets">6</div>
+                <div class="stat-label">Ek Veri Setleri</div>
+                <div class="stat-sublabel">Destekleyici Kaynaklar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value" id="avgScore">7.6</div>
+                <div class="stat-label">Ortalama Skor</div>
+                <div class="stat-sublabel">Uygunluk Değerlendirmesi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔓</div>
+                <div class="stat-value" id="openAccess">16</div>
+                <div class="stat-label">Açık Erişim</div>
+                <div class="stat-sublabel">Ücretsiz Kullanılabilir</div>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('overview')">📈 Genel Bakış</button>
+            <button class="tab" onclick="switchTab('datasets')">📚 Veri Setleri</button>
+            <button class="tab" onclick="switchTab('comparison')">⚖️ Karşılaştırma</button>
+            <button class="tab" onclick="switchTab('analysis')">🔬 Analiz</button>
+        </div>
+        
+        <!-- Tab Contents -->
+        <div id="overview" class="tab-content active">
+            <!-- Grafikler -->
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Uygunluk Skoru Dağılımı</h2>
+                    <div class="filter-group">
+                        <button class="filter-btn active" onclick="filterChart('all')">Tümü</button>
+                        <button class="filter-btn" onclick="filterChart('earthquake')">Deprem</button>
+                        <button class="filter-btn" onclick="filterChart('har')">HAR</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="suitabilityChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-grid">
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Kategori Dağılımı</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Erişim Durumu</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="accessChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Örnekleme Frekansı Analizi</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="samplingChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="datasets" class="tab-content">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 Veri seti ara... (isim, kaynak, sensör türü)">
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Deprem Odaklı Veri Setleri</h2>
+                    <span class="badge badge-category">6 Veri Seti</span>
+                </div>
+                <div class="dataset-grid" id="earthquakeGrid"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">HAR Veri Setleri</h2>
+                    <span class="badge badge-category">7 Veri Seti</span>
+                </div>
+                <div class="dataset-grid" id="harGrid"></div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Ek Veri Setleri</h2>
+                    <span class="badge badge-category">6 Veri Seti</span>
+                </div>
+                <div class="dataset-grid" id="additionalGrid"></div>
+            </div>
+        </div>
+        
+        <div id="comparison" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Detaylı Karşılaştırma Tablosu</h2>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table" id="comparisonTable">
+                        <thead>
+                            <tr>
+                                <th>Veri Seti</th>
+                                <th>Kategori</th>
+                                <th>Sensörler</th>
+                                <th>Örnekleme</th>
+                                <th>Skor</th>
+                                <th>Erişim</th>
+                                <th>Kaynak</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div id="analysis" class="tab-content">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Sensör Tipi Analizi</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sensorChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-grid">
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Format Dağılımı</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="formatChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Lisans Türleri</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="licenseChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kaynaklar Bölümü -->
+        <div class="references-section">
+            <div class="references-toggle" onclick="toggleReferences()">
+                <div>
+                    <h3 style="font-family: 'IBM Plex Mono', monospace; color: var(--accent-tertiary);">
+                        📚 Akademik Kaynaklar ve Referanslar
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+                        Tüm veri setleri için akademik yayınlar ve resmi dokümantasyon linkleri
+                    </p>
+                </div>
+                <span id="referencesArrow" style="font-size: 2rem; color: var(--accent-primary); transition: transform 0.3s ease;">▼</span>
+            </div>
+            <div class="references-content" id="referencesContent">
+                <div class="reference-list" id="referenceList"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Deprem Araştırma Projesi - Veri Seti Analiz Dashboard v2.0</p>
+        <p>Hazırlayan: Muhammed ŞARA | 2026</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">
+            Bu dashboard, akademik araştırma amaçlı hazırlanmıştır.<br>
+            Tüm veri setleri doğrulanmış kaynaklardan derlenmiştir.
+        </p>
+    </footer>
+    
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+    
+    <script>
+        // Veri seti verilerini buraya ekleyelim
+        const datasetsData = {
+            "earthquake_focused": [
+                {
+                    "name": "MyShake Dataset",
+                    "category": "Mobil + Deprem",
+                    "source": "UC Berkeley",
+                    "url": "https://myshake.berkeley.edu/",
+                    "reference": "Kong et al. (2016), Science Advances",
+                    "sensors": ["Accelerometer", "GPS"],
+                    "sampling_rate": "25 Hz",
+                    "samples": 27527,
+                    "format": ["CSV", "JSON"],
+                    "suitability_score": 10,
+                    "usage": "Direkt kullanılabilir - Deprem/insan ayrımı",
+                    "pros": ["Mobil cihaz verisi", "Etiketli veri", "GPS entegrasyonu"],
+                    "cons": ["Düşük örnekleme frekansı"],
+                    "availability": "Request required",
+                    "license": "Academic use"
+                },
+                {
+                    "name": "STEAD Dataset",
+                    "category": "Sismik + Sinyal İşleme",
+                    "source": "Stanford University",
+                    "url": "https://github.com/smousavi05/STEAD",
+                    "reference": "Mousavi et al. (2019), IEEE Access",
+                    "sensors": ["Seismometer (Z, N, E)"],
+                    "sampling_rate": "100 Hz",
+                    "samples": 1200000,
+                    "format": ["npy", "csv", "json", "mseed"],
+                    "suitability_score": 9,
+                    "usage": "Transfer learning için ideal",
+                    "pros": ["Büyük veri seti", "P/S fazı etiketli", "Yüksek kalite"],
+                    "cons": ["Sabit istasyon verisi", "IMU değil"],
+                    "availability": "Open access",
+                    "license": "MIT License"
+                },
+                {
+                    "name": "Grillo-OpenEEW Dataset",
+                    "category": "IoT + Deprem",
+                    "source": "Grillo Network",
+                    "url": "https://openeew.com/",
+                    "reference": "Grillo et al. (2019), Seismological Research Letters",
+                    "sensors": ["Accelerometer (3-axis)"],
+                    "sampling_rate": "100 Hz",
+                    "format": ["CSV", "JSON"],
+                    "suitability_score": 8,
+                    "usage": "IoT uygulamaları ve PGA hesaplama",
+                    "pros": ["Gerçek zamanlı", "Düşük maliyet", "IoT uyumlu"],
+                    "cons": ["Ön işlem gerektirir"],
+                    "availability": "Open access",
+                    "license": "Apache 2.0"
+                },
+                {
+                    "name": "SCSN Dataset",
+                    "category": "Sismik + Bölgesel",
+                    "source": "Caltech + USGS",
+                    "url": "https://scedc.caltech.edu/",
+                    "reference": "Southern California Earthquake Data Center",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "1-100 Hz",
+                    "format": ["mseed", "phase", "catalog"],
+                    "suitability_score": 8,
+                    "usage": "Bölgesel validasyon",
+                    "pros": ["Tarihsel veri", "Gerçek deprem kayıtları"],
+                    "cons": ["Mobil cihaz verisi değil"],
+                    "availability": "Open access",
+                    "license": "Public domain"
+                },
+                {
+                    "name": "ShakeMap Dataset",
+                    "category": "Deprem + Şiddet Haritası",
+                    "source": "USGS",
+                    "url": "https://earthquake.usgs.gov/data/shakemap/",
+                    "reference": "Worden et al. (2020), Earthquake Spectra",
+                    "sensors": ["N/A"],
+                    "sampling_rate": "N/A",
+                    "format": ["XML", "JSON", "Grid"],
+                    "suitability_score": 7,
+                    "usage": "PGA/MMI regresyon modeli",
+                    "pros": ["Şiddet tahmini", "Global kapsam"],
+                    "cons": ["Ham sensör verisi yok"],
+                    "availability": "Open access",
+                    "license": "Public domain"
+                },
+                {
+                    "name": "UUSS Dataset",
+                    "category": "Mikro-Deprem",
+                    "source": "University of Utah",
+                    "url": "https://www.seis.utah.edu/",
+                    "reference": "University of Utah Seismograph Stations",
+                    "sensors": ["Seismograph"],
+                    "sampling_rate": "Variable",
+                    "format": ["csv", "segy", "mseed"],
+                    "suitability_score": 6,
+                    "usage": "Mikro-deprem analizi",
+                    "pros": ["Detaylı mikro-deprem kayıtları"],
+                    "cons": ["Bölgesel (Utah)"],
+                    "availability": "Request required",
+                    "license": "Academic use"
+                }
+            ],
+            "har_datasets": [
+                {
+                    "name": "MobiAct Dataset",
+                    "category": "HAR + IMU",
+                    "source": "Hellenic Mediterranean University",
+                    "url": "https://bmi.hmu.gr/the-mobifall-and-mobiact-datasets-2/",
+                    "reference": "Chatzaki et al. (2017), Pervasive Technologies",
+                    "sensors": ["Accelerometer"],
+                    "sampling_rate": "20 Hz",
+                    "format": ["txt", "csv"],
+                    "suitability_score": 7,
+                    "usage": "İnsan aktivitesi baseline",
+                    "pros": ["Mobil cihaz", "Düşme tespiti"],
+                    "cons": ["Yeniden etiketleme gerekir"],
+                    "availability": "Request required",
+                    "license": "Academic use"
+                },
+                {
+                    "name": "UniMiB SHAR Dataset",
+                    "category": "HAR + Smartphone",
+                    "source": "University of Milano-Bicocca",
+                    "url": "https://www.sal.disco.unimib.it/technologies/unimib-shar/",
+                    "reference": "Micucci et al. (2017), Applied Sciences",
+                    "sensors": ["Accelerometer (3-axis)"],
+                    "sampling_rate": "50 Hz",
+                    "format": ["mat", "arff", "csv"],
+                    "suitability_score": 7,
+                    "usage": "Düşme/aktivite ayrımı",
+                    "pros": ["Düşme senaryoları", "Smartphone verisi"],
+                    "cons": ["Deprem etiketi yok"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                },
+                {
+                    "name": "HAPT Dataset",
+                    "category": "HAR + IMU",
+                    "source": "UCI Repository",
+                    "url": "https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones",
+                    "reference": "Reyes-Ortiz et al. (2016), Expert Systems with Applications",
+                    "sensors": ["Accelerometer", "Gyroscope"],
+                    "sampling_rate": "50 Hz",
+                    "format": ["txt"],
+                    "suitability_score": 7,
+                    "usage": "Gyro+Accel fusion",
+                    "pros": ["Gyroscope verisi", "Postür geçişleri"],
+                    "cons": ["Küçük veri seti"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                },
+                {
+                    "name": "PAMAP2 Dataset",
+                    "category": "HAR + Multi-sensor",
+                    "source": "UCI Repository",
+                    "url": "https://archive.ics.uci.edu/ml/datasets/PAMAP2+Physical+Activity+Monitoring",
+                    "reference": "Reiss & Stricker (2012), ISWC",
+                    "sensors": ["Accelerometer", "Gyroscope", "Magnetometer", "Heart Rate"],
+                    "sampling_rate": "100 Hz",
+                    "format": ["txt"],
+                    "suitability_score": 7,
+                    "usage": "Multi-sensor fusion",
+                    "pros": ["Çoklu sensör", "Yüksek örnekleme"],
+                    "cons": ["Az katılımcı"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                },
+                {
+                    "name": "WISDM Dataset",
+                    "category": "HAR + Mobile",
+                    "source": "Fordham University",
+                    "url": "http://www.cis.fordham.edu/wisdm/dataset.php",
+                    "reference": "Kwapisz et al. (2011), SIGKDD Explorations",
+                    "sensors": ["Accelerometer (X, Y, Z)"],
+                    "sampling_rate": "20 Hz",
+                    "samples": 1098207,
+                    "format": ["txt", "arff", "csv"],
+                    "suitability_score": 6,
+                    "usage": "Aktivite tanıma baseline",
+                    "pros": ["Büyük veri seti", "Basit format"],
+                    "cons": ["Düşük örnekleme", "Gyro yok"],
+                    "availability": "Open access",
+                    "license": "Academic use"
+                },
+                {
+                    "name": "UCI HAR Dataset",
+                    "category": "HAR + Smartphone",
+                    "source": "UCI Repository",
+                    "url": "https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones",
+                    "reference": "Anguita et al. (2013), ESANN",
+                    "sensors": ["Accelerometer", "Gyroscope"],
+                    "sampling_rate": "50 Hz",
+                    "samples": 10299,
+                    "format": ["txt", "csv"],
+                    "suitability_score": 6,
+                    "usage": "Feature extraction referansı",
+                    "pros": ["Özellik mühendisliği örneği"],
+                    "cons": ["Küçük veri seti"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                },
+                {
+                    "name": "REALDISP Dataset",
+                    "category": "HAR + IMU",
+                    "source": "Various",
+                    "url": "https://archive.ics.uci.edu/ml/datasets/REALDISP+Activity+Recognition+Dataset",
+                    "reference": "Banos et al. (2012), Sensors",
+                    "sensors": ["Accelerometer", "Gyroscope"],
+                    "sampling_rate": "50 Hz",
+                    "format": ["txt", "csv"],
+                    "suitability_score": 6,
+                    "usage": "Düşme ve hareket aktiviteleri",
+                    "pros": ["Gerçek cihaz verisi"],
+                    "cons": ["Orta boyut"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                }
+            ],
+            "additional_datasets": [
+                {
+                    "name": "INSTANCE Dataset",
+                    "category": "Sismik + İtalya",
+                    "source": "INGV (Italian National Institute)",
+                    "url": "http://terremoti.ingv.it/",
+                    "reference": "Michelini et al. (2021), Earth System Science Data",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "100 Hz",
+                    "format": ["mseed", "json"],
+                    "suitability_score": 8,
+                    "usage": "Avrupa deprem verileri",
+                    "pros": ["Gerçek deprem kayıtları", "Gürültü örnekleri"],
+                    "cons": ["Bölgesel (İtalya)"],
+                    "availability": "Open access",
+                    "license": "CC BY 4.0"
+                },
+                {
+                    "name": "CREW Dataset",
+                    "category": "Sismik + Bölgesel",
+                    "source": "Canadian Network",
+                    "url": "https://earthquakescanada.nrcan.gc.ca/",
+                    "reference": "Yoon et al. (2022), Seismica",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "Variable",
+                    "format": ["mseed", "hdf5"],
+                    "suitability_score": 7,
+                    "usage": "Kalite kontrollü dalga formları",
+                    "pros": ["Yüksek kalite", "Küratörlü"],
+                    "cons": ["Orta boyut"],
+                    "availability": "Open access",
+                    "license": "Open data"
+                },
+                {
+                    "name": "LEN-DB Dataset",
+                    "category": "Sismik + Local",
+                    "source": "Various seismic networks",
+                    "url": "https://doi.org/10.1785/0220200276",
+                    "reference": "Magrini et al. (2020), SRL",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "Variable",
+                    "format": ["mseed"],
+                    "suitability_score": 7,
+                    "usage": "Global yerel depremler",
+                    "pros": ["Global kapsam"],
+                    "cons": ["Dağınık yapı"],
+                    "availability": "Open access",
+                    "license": "Various"
+                },
+                {
+                    "name": "EQTransformer Dataset",
+                    "category": "Sismik + Deep Learning",
+                    "source": "Stanford (based on STEAD)",
+                    "url": "https://github.com/smousavi05/EQTransformer",
+                    "reference": "Mousavi et al. (2020), Nature Communications",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "100 Hz",
+                    "format": ["hdf5", "json"],
+                    "suitability_score": 8,
+                    "usage": "Deep learning faz tespiti",
+                    "pros": ["DL modeli ile birlikte", "Pre-processed"],
+                    "cons": ["STEAD türevi"],
+                    "availability": "Open access",
+                    "license": "MIT License"
+                },
+                {
+                    "name": "GeoNet Dataset",
+                    "category": "Sismik + Yeni Zelanda",
+                    "source": "GNS Science",
+                    "url": "https://www.geonet.org.nz/",
+                    "reference": "GeoNet New Zealand",
+                    "sensors": ["Seismometer", "Strong motion"],
+                    "sampling_rate": "Variable",
+                    "format": ["mseed", "QuakeML"],
+                    "suitability_score": 7,
+                    "usage": "Pasifik Halka-i Ateş verileri",
+                    "pros": ["Gerçek zamanlı", "Yüksek deprem aktivitesi"],
+                    "cons": ["Bölgesel"],
+                    "availability": "Open access",
+                    "license": "Open data"
+                },
+                {
+                    "name": "STanford EArthquake Dataset (STEAD-2)",
+                    "category": "Sismik + Gelişmiş",
+                    "source": "Stanford University",
+                    "url": "https://github.com/smousavi05/STEAD",
+                    "reference": "Mousavi et al. (2022), Geophysics",
+                    "sensors": ["Seismometer"],
+                    "sampling_rate": "100 Hz",
+                    "format": ["hdf5"],
+                    "suitability_score": 9,
+                    "usage": "Güncellenmiş STEAD versiyonu",
+                    "pros": ["Daha fazla veri", "Gelişmiş etiketleme"],
+                    "cons": ["STEAD ile overlap"],
+                    "availability": "Open access",
+                    "license": "MIT License"
+                }
+            ]
+        };
+        
+        // Tüm veri setlerini birleştir
+        const allDatasets = [
+            ...datasetsData.earthquake_focused,
+            ...datasetsData.har_datasets,
+            ...datasetsData.additional_datasets
+        ];
+        
+        // İstatistikleri güncelle
+        document.getElementById('totalDatasets').textContent = allDatasets.length;
+        document.getElementById('earthquakeDatasets').textContent = datasetsData.earthquake_focused.length;
+        document.getElementById('harDatasets').textContent = datasetsData.har_datasets.length;
+        document.getElementById('additionalDatasets').textContent = datasetsData.additional_datasets.length;
+        
+        const avgScore = allDatasets.reduce((sum, ds) => sum + ds.suitability_score, 0) / allDatasets.length;
+        document.getElementById('avgScore').textContent = avgScore.toFixed(1);
+        
+        const openAccessCount = allDatasets.filter(ds => ds.availability === 'Open access').length;
+        document.getElementById('openAccess').textContent = openAccessCount;
+        
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+        
+        // References toggle
+        function toggleReferences() {
+            const content = document.getElementById('referencesContent');
+            const arrow = document.getElementById('referencesArrow');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('expanded');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Scroll to top
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Veri seti kartlarını oluştur
+        function createDatasetCard(dataset) {
+            const sensorsHtml = dataset.sensors.map(s => 
+                `<span class="badge badge-sensor">${s}</span>`
+            ).join('');
+            
+            const prosHtml = dataset.pros ? dataset.pros.map(p => `<li>${p}</li>`).join('') : '';
+            const consHtml = dataset.cons ? dataset.cons.map(c => `<li>${c}</li>`).join('') : '';
+            
+            const formatsHtml = dataset.format.map(f => 
+                `<span class="badge badge-sensor">${f}</span>`
+            ).join('');
+            
+            return `
+                <div class="dataset-card" data-name="${dataset.name}" data-category="${dataset.category}" data-sensors="${dataset.sensors.join(' ')}">
+                    <div class="dataset-header">
+                        <div class="dataset-name">${dataset.name}</div>
+                        <div class="score-badge">${dataset.suitability_score}</div>
+                    </div>
+                    
+                    <div class="dataset-meta">
+                        <span class="badge badge-category">${dataset.category}</span>
+                        ${dataset.availability === 'Open access' ? '<span class="badge badge-access">Open Access</span>' : ''}
+                    </div>
+                    
+                    <div class="dataset-info">
+                        <div class="info-item">
+                            <span class="info-label">Kaynak</span>
+                            <span class="info-value">${dataset.source}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Örnekleme</span>
+                            <span class="info-value">${dataset.sampling_rate}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Lisans</span>
+                            <span class="info-value">${dataset.license}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Format</span>
+                            <span class="info-value">${formatsHtml}</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 1rem 0;">
+                        ${sensorsHtml}
+                    </div>
+                    
+                    <div class="dataset-description">
+                        <strong>Kullanım:</strong> ${dataset.usage}
+                    </div>
+                    
+                    ${dataset.pros && dataset.cons ? `
+                    <div class="dataset-pros-cons">
+                        <div class="pros">
+                            <h4>✓ Avantajlar</h4>
+                            <ul>${prosHtml}</ul>
+                        </div>
+                        <div class="cons">
+                            <h4>✗ Dezavantajlar</h4>
+                            <ul>${consHtml}</ul>
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="dataset-footer">
+                        <a href="${dataset.url}" target="_blank" class="dataset-link">
+                            Veri Setine Git →
+                        </a>
+                        <span class="dataset-reference">${dataset.reference}</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Veri setlerini gruplara yerleştir
+        document.getElementById('earthquakeGrid').innerHTML = datasetsData.earthquake_focused
+            .map(ds => createDatasetCard(ds)).join('');
+        document.getElementById('harGrid').innerHTML = datasetsData.har_datasets
+            .map(ds => createDatasetCard(ds)).join('');
+        document.getElementById('additionalGrid').innerHTML = datasetsData.additional_datasets
+            .map(ds => createDatasetCard(ds)).join('');
+        
+        // Karşılaştırma tablosunu doldur
+        const comparisonTableBody = document.getElementById('comparisonTableBody');
+        const sortedDatasets = [...allDatasets].sort((a, b) => b.suitability_score - a.suitability_score);
+        
+        sortedDatasets.forEach(dataset => {
+            const row = document.createElement('tr');
+            const sensorsHtml = dataset.sensors.map(s => `<span class="badge badge-sensor">${s}</span>`).join(' ');
+            
+            row.innerHTML = `
+                <td><strong>${dataset.name}</strong></td>
+                <td><span class="badge badge-category">${dataset.category}</span></td>
+                <td>${sensorsHtml}</td>
+                <td>${dataset.sampling_rate}</td>
+                <td><strong style="color: ${
+                    dataset.suitability_score >= 9 ? 'var(--accent-primary)' : 
+                    dataset.suitability_score >= 7 ? 'var(--accent-secondary)' : 
+                    'var(--accent-tertiary)'
+                }">${dataset.suitability_score}/10</strong></td>
+                <td>${dataset.availability === 'Open access' ? 
+                    '<span class="badge badge-access">Open</span>' : 
+                    '<span class="badge">Request</span>'}</td>
+                <td><a href="${dataset.url}" target="_blank" style="color: var(--accent-secondary);">Link</a></td>
+            `;
+            
+            comparisonTableBody.appendChild(row);
+        });
+        
+        // Kaynakları doldur
+        const referenceList = document.getElementById('referenceList');
+        allDatasets.forEach((dataset, idx) => {
+            const refItem = document.createElement('div');
+            refItem.className = 'reference-item';
+            refItem.innerHTML = `
+                <strong>${idx + 1}. ${dataset.name}</strong><br>
+                ${dataset.reference}<br>
+                <a href="${dataset.url}" target="_blank">${dataset.url}</a>
+            `;
+            referenceList.appendChild(refItem);
+        });
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.dataset-card').forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                const sensors = card.getAttribute('data-sensors').toLowerCase();
+                
+                if (name.includes(searchTerm) || category.includes(searchTerm) || sensors.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Charts
+        Chart.defaults.color = '#b0b3b8';
+        Chart.defaults.borderColor = '#2a3f5f';
+        
+        // Uygunluk Skoru Grafiği
+        const suitabilityCtx = document.getElementById('suitabilityChart').getContext('2d');
+        new Chart(suitabilityCtx, {
+            type: 'bar',
+            data: {
+                labels: sortedDatasets.map(d => d.name),
+                datasets: [{
+                    label: 'Uygunluk Skoru (1-10)',
+                    data: sortedDatasets.map(d => d.suitability_score),
+                    backgroundColor: sortedDatasets.map(d => {
+                        if (d.suitability_score >= 9) return 'rgba(0, 245, 212, 0.8)';
+                        if (d.suitability_score >= 7) return 'rgba(0, 187, 249, 0.8)';
+                        return 'rgba(254, 228, 64, 0.8)';
+                    }),
+                    borderColor: sortedDatasets.map(d => {
+                        if (d.suitability_score >= 9) return '#00f5d4';
+                        if (d.suitability_score >= 7) return '#00bbf9';
+                        return '#fee440';
+                    }),
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { family: 'IBM Plex Mono', size: 10 }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Kategori Dağılımı
+        const categoryCount = {};
+        allDatasets.forEach(d => {
+            const mainCategory = d.category.split(' + ')[0];
+            categoryCount[mainCategory] = (categoryCount[mainCategory] || 0) + 1;
+        });
+        
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(categoryCount),
+                datasets: [{
+                    data: Object.values(categoryCount),
+                    backgroundColor: [
+                        'rgba(0, 245, 212, 0.8)',
+                        'rgba(0, 187, 249, 0.8)',
+                        'rgba(254, 228, 64, 0.8)',
+                        'rgba(241, 91, 181, 0.8)',
+                        'rgba(6, 255, 165, 0.8)'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#0f0f23'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Inter', size: 11 },
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Erişim Durumu
+        const accessCount = {
+            'Open access': allDatasets.filter(d => d.availability === 'Open access').length,
+            'Request required': allDatasets.filter(d => d.availability === 'Request required').length
+        };
+        
+        const accessCtx = document.getElementById('accessChart').getContext('2d');
+        new Chart(accessCtx, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(accessCount),
+                datasets: [{
+                    data: Object.values(accessCount),
+                    backgroundColor: [
+                        'rgba(6, 255, 165, 0.8)',
+                        'rgba(254, 228, 64, 0.8)'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#0f0f23'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Inter', size: 11 },
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Örnekleme Frekansı
+        const samplingRates = allDatasets.map(d => {
+            const rate = d.sampling_rate.match(/\d+/);
+            return rate ? parseInt(rate[0]) : 0;
+        });
+        
+        const samplingCtx = document.getElementById('samplingChart').getContext('2d');
+        new Chart(samplingCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Örnekleme Frekansı vs Uygunluk Skoru',
+                    data: allDatasets.map((d, i) => ({
+                        x: samplingRates[i],
+                        y: d.suitability_score,
+                        label: d.name
+                    })),
+                    backgroundColor: 'rgba(0, 187, 249, 0.6)',
+                    borderColor: '#00bbf9',
+                    pointRadius: 8,
+                    pointHoverRadius: 12
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.label + ': ' + context.parsed.x + ' Hz, Skor: ' + context.parsed.y;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Örnekleme Frekansı (Hz)',
+                            color: '#00f5d4'
+                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Uygunluk Skoru',
+                            color: '#00f5d4'
+                        },
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    }
+                }
+            }
+        });
+        
+        // Sensör Tipi Analizi
+        const sensorCount = {};
+        allDatasets.forEach(d => {
+            d.sensors.forEach(sensor => {
+                sensorCount[sensor] = (sensorCount[sensor] || 0) + 1;
+            });
+        });
+        
+        const sensorCtx = document.getElementById('sensorChart').getContext('2d');
+        new Chart(sensorCtx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(sensorCount),
+                datasets: [{
+                    label: 'Kullanım Sayısı',
+                    data: Object.values(sensorCount),
+                    backgroundColor: 'rgba(0, 245, 212, 0.7)',
+                    borderColor: '#00f5d4',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+        
+        // Format Dağılımı
+        const formatCount = {};
+        allDatasets.forEach(d => {
+            d.format.forEach(format => {
+                formatCount[format] = (formatCount[format] || 0) + 1;
+            });
+        });
+        
+        const formatCtx = document.getElementById('formatChart').getContext('2d');
+        new Chart(formatCtx, {
+            type: 'polarArea',
+            data: {
+                labels: Object.keys(formatCount),
+                datasets: [{
+                    data: Object.values(formatCount),
+                    backgroundColor: [
+                        'rgba(0, 245, 212, 0.6)',
+                        'rgba(0, 187, 249, 0.6)',
+                        'rgba(254, 228, 64, 0.6)',
+                        'rgba(241, 91, 181, 0.6)',
+                        'rgba(6, 255, 165, 0.6)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Inter', size: 10 },
+                            padding: 10
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Lisans Türleri
+        const licenseCount = {};
+        allDatasets.forEach(d => {
+            licenseCount[d.license] = (licenseCount[d.license] || 0) + 1;
+        });
+        
+        const licenseCtx = document.getElementById('licenseChart').getContext('2d');
+        new Chart(licenseCtx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(licenseCount),
+                datasets: [{
+                    data: Object.values(licenseCount),
+                    backgroundColor: [
+                        'rgba(6, 255, 165, 0.8)',
+                        'rgba(0, 187, 249, 0.8)',
+                        'rgba(254, 228, 64, 0.8)',
+                        'rgba(241, 91, 181, 0.8)'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#0f0f23'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: 'Inter', size: 10 },
+                            padding: 10
+                        }
+                    }
+                }
+            }
+        });
+        
+        console.log('%c Deprem Araştırma Projesi Dashboard v2.0 ', 'background: #00f5d4; color: #0f0f23; font-size: 16px; font-weight: bold; padding: 10px;');
+        console.log('%c Hazırlayan: Muhammed ŞARA ', 'background: #00bbf9; color: white; font-size: 12px; padding: 5px;');
+    </script>
+</body>
+</html>

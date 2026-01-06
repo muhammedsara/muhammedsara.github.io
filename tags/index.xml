@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags | Muhammed ŞARA — AI &amp; Computer Vision</title><link>https://muhammedsara.github.io/tags/</link><atom:link href="https://muhammedsara.github.io/tags/index.xml" rel="self" type="application/rss+xml"/><description>Tags</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><image><url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url><title>Tags</title><link>https://muhammedsara.github.io/tags/</link></image></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>https://muhammedsara.github.io/tags/</link>
+      <atom:link href="https://muhammedsara.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Tags</title>
+      <link>https://muhammedsara.github.io/tags/</link>
+    </image>
+    
+  </channel>
+</rss>

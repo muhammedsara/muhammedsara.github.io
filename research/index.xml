@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research &amp; Analysis | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>https://muhammedsara.github.io/research/</link>
+      <atom:link href="https://muhammedsara.github.io/research/index.xml" rel="self" type="application/rss+xml" />
+    <description>Research &amp; Analysis</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language>
+    <image>
+      <url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url>
+      <title>Research &amp; Analysis</title>
+      <link>https://muhammedsara.github.io/research/</link>
+    </image>
+    
+  </channel>
+</rss>

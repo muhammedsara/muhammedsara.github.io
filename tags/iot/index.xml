@@ -1,6 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IoT | Muhammed ŞARA — AI &amp; Computer Vision</title><link>https://muhammedsara.github.io/tags/iot/</link><atom:link href="https://muhammedsara.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml"/><description>IoT</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><image><url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url><title>IoT</title><link>https://muhammedsara.github.io/tags/iot/</link></image><item><title>KURTAR — IoT &amp; AI-Based Disaster Victim Detection and Coordination Platform</title><link>https://muhammedsara.github.io/project/kurtar/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://muhammedsara.github.io/project/kurtar/</guid><description>&lt;h3 id="project-overview"&gt;Project Overview&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT | Muhammed ŞARA — AI &amp; Computer Vision</title>
+    <link>https://muhammedsara.github.io/tags/iot/</link>
+      <atom:link href="https://muhammedsara.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+    <description>IoT</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://muhammedsara.github.io/media/icon_hu_b179389d8d4f547.png</url>
+      <title>IoT</title>
+      <link>https://muhammedsara.github.io/tags/iot/</link>
+    </image>
+    
+    <item>
+      <title>KURTAR — IoT &amp; AI-Based Disaster Victim Detection and Coordination Platform</title>
+      <link>https://muhammedsara.github.io/project/kurtar/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://muhammedsara.github.io/project/kurtar/</guid>
+      <description>&lt;h3 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h3&gt;
 &lt;p&gt;The &lt;strong&gt;KURTAR Project&lt;/strong&gt; aims to revolutionize disaster response by combining &lt;strong&gt;IoT, mobile devices, and AI-driven decision systems&lt;/strong&gt;. During earthquakes or similar emergencies, the platform collects real-time data from mobile phones, wearables, and distributed IoT sensors. This data is processed by &lt;strong&gt;machine learning and deep learning models&lt;/strong&gt;, enabling autonomous decision-making to assist rescue teams in coordination and victim detection.&lt;/p&gt;
-&lt;h3 id="key-features"&gt;Key Features&lt;/h3&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Multi-Sensor Fusion&lt;/strong&gt;: Integration of accelerometer, gyroscope, GPS, and audio signals from mobile and IoT devices.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Edge/Cloud AI&lt;/strong&gt;: Lightweight models (CNN, LSTM, CRNN, GNN) deployed on &lt;strong&gt;Raspberry Pi, mobile, and cloud servers&lt;/strong&gt; for real-time analysis.&lt;/li&gt;
@@ -9,11 +28,16 @@
 &lt;li&gt;&lt;strong&gt;Decision Support&lt;/strong&gt;: Bayesian networks and reinforcement learning models support &lt;strong&gt;routing, prioritization, and risk mapping&lt;/strong&gt; for rescue teams.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mapping &amp;amp; Visualization&lt;/strong&gt;: GIS-based dashboards provide live situational awareness for &lt;strong&gt;AFAD and emergency responders&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="research-context"&gt;Research Context&lt;/h3&gt;
+&lt;h3 id=&#34;research-context&#34;&gt;Research Context&lt;/h3&gt;
 &lt;p&gt;The project aligns with my &lt;strong&gt;doctoral research&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Artificial Intelligence-Supported Real-Time Disaster Management with Multi-Sensor Fusion&lt;/em&gt; (PhD, Kocaeli University, ongoing).&lt;/li&gt;
 &lt;li&gt;Supported by a &lt;strong&gt;TÜBİTAK 1001 Grant&lt;/strong&gt;, integrating academic research with practical disaster-response applications.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="impact"&gt;Impact&lt;/h3&gt;
-&lt;p&gt;KURTAR has the potential to &lt;strong&gt;save lives in the golden hours of disaster response&lt;/strong&gt;, by accelerating victim detection, reducing coordination delays, and enabling data-driven decision-making for national and international rescue teams.&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id=&#34;impact&#34;&gt;Impact&lt;/h3&gt;
+&lt;p&gt;KURTAR has the potential to &lt;strong&gt;save lives in the golden hours of disaster response&lt;/strong&gt;, by accelerating victim detection, reducing coordination delays, and enabling data-driven decision-making for national and international rescue teams.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,3371 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: January 6, 2026 --><html lang="en" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.5.2" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Muhammed ŞARA" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Comprehensive data analysis for earthquake detection using mobile and edge sensors." />
+
+  
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/research/earthquake-edge-detection/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+  
+    
+
+  
+  
+    
+      <link rel="stylesheet" href="/css/main.css">
+    
+  
+
+
+  
+
+  
+  
+  
+
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu_caf7e81d18803eaf.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu_733184fd45bac04a.png" />
+
+  <link rel="canonical" href="http://localhost:1313/research/earthquake-edge-detection/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@muhammedsara0" />
+    <meta property="twitter:creator" content="@muhammedsara0" />
+  
+  <meta property="og:site_name" content="Muhammed ŞARA — AI &amp; Computer Vision" />
+  <meta property="og:url" content="http://localhost:1313/research/earthquake-edge-detection/" />
+  <meta property="og:title" content="Earthquake Detection from Mobile &amp; Edge Devices | Muhammed ŞARA — AI &amp; Computer Vision" />
+  <meta property="og:description" content="Comprehensive data analysis for earthquake detection using mobile and edge sensors." /><meta property="og:image" content="http://localhost:1313/media/icon_hu_b179389d8d4f547.png" />
+    <meta property="twitter:image" content="http://localhost:1313/media/icon_hu_b179389d8d4f547.png" /><meta property="og:locale" content="en" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-01-01T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  <title>Earthquake Detection from Mobile &amp; Edge Devices | Muhammed ŞARA — AI &amp; Computer Vision</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+
+   
+  .search-close > svg {
+    height: calc(64px * var(--pagefind-ui-scale));
+    width: calc(64px * var(--pagefind-ui-scale));
+  }
+</style>
+
+<script>
+  
+  let searchWrapper = null;
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+
+    
+    searchWrapper = document.getElementById('search-wrapper');
+
+    
+    let triggers = document.querySelectorAll('[data-search-toggle]');
+    triggers.forEach(trigger =>
+      trigger.addEventListener('click', handleSearchToggle)
+    );
+  });
+
+  function handleSearchToggle(event) {
+    if (!searchWrapper) return;
+
+    const isHidden = searchWrapper.classList.contains('hidden');
+    searchWrapper.classList.toggle('hidden');
+    document.body.style.overflow = isHidden ? 'hidden' : '';
+
+    const searchInput = searchWrapper.querySelector("input");
+    if (searchInput) {
+      searchInput.value = "";
+      searchInput.focus();
+    }
+
+    if (!searchWrapper.classList.contains('hidden')) {
+      let clearTrigger = document.querySelector('.pagefind-ui__search-clear');
+
+      if (clearTrigger && !clearTrigger.hasAttribute('listenerOnClick')) {
+        clearTrigger.setAttribute('listenerOnClick', 'true');
+
+        clearTrigger.addEventListener('click', () => {
+          searchInput.focus();
+        });
+      }
+    }
+  }
+
+  
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && searchWrapper && !searchWrapper.classList.contains('hidden')) {
+      searchWrapper.classList.add('hidden');
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-start">
+    <div class="order-0 h-full">
+      
+      <a class="navbar-brand" href="/" title="Muhammed ŞARA — AI &amp; Computer Vision">
+        Muhammed ŞARA
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-start
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/#papers"
+        >Publications</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience/"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/projects/"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/research/"
+        >Research</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="toggle search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        data-search-toggle>
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="block dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="hidden dark:block">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+<div
+  id="search-wrapper"
+  class="hidden fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
+>
+  <div class="flex justify-end p-3">
+    <button
+      aria-label="search"
+      class="search-close text-black hover:text-primary dark:text-white"
+      data-search-toggle
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="search" class="flex-1 overflow-y-auto p-3">
+    
+  </div>
+</div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      
+
+
+
+
+
+<div class="mx-auto flex max-w-screen-xl">
+  
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:hidden xl:block">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/research/"
+    
+  >Research &amp; Analysis
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/research/earthquake-edge-detection/"
+    
+  >Earthquake Detection from Mobile &amp; Edge Devices
+    </a>
+  
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/kurtar/"
+    
+  >KURTAR — IoT &amp; AI-Based Disaster Victim Detection and Coordination Platform
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/koustech/"
+    
+  >KOUSTECH – Unmanned Systems Technology Team (AUVSI SUAS)
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/tm-beta/"
+    
+  >TM-Elektromobil-PC — Console Interface for Electric Vehicle Race
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/biovis/"
+    
+  >BioVis — Biometric Identity Verification Device
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/fotovis/"
+    
+  >CountVis — Smart Meter Reading Application
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/digivis/"
+    
+  >DigiVis — Digital Onboarding &amp; KYC
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/idvis/"
+    
+  >IDVis — Compact ID &amp; Passport Verification Device
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/ipvis/"
+    
+  >IPVis — Smart Face Recognition Access Control
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/payvis/"
+    
+  >PayVis — Pay by Face System
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/tezhaber/"
+    
+  >TezHaber — Centroid-based Text Summarization (AçıkHack 2019)
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/fourplusone/"
+    
+  >FourPlusOne — Mini Autonomous Vehicle (OpenZeka MARC)
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/imagedit/"
+    
+  >Image Processing Editor (C#)
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/msc-thesis/"
+    
+  >Prediction of Air Quality from PM10 Concentrations and Meteorological Information Using Cross-Data Analytics
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >A Reproducible Educational Plan to Teach Mini Autonomous Race Car Programming
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >CNN Based Traffic Sign Recognition for Mini Autonomous Vehicles
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >End-to-end Learning Model Design for Steering Autonomous Vehicle
+    </a>
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4">
+
+  
+  
+    
+    
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Earthquake Detection from Mobile &amp; Edge Devices</h1>
+
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Jan 1, 2025</span>
+        
+
+        
+        
+
+        
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          1 min read
+        </span>
+        
+        </div>
+
+        <div class="mt-3">
+          
+
+
+
+
+        </div>
+      </div>
+
+
+
+      
+      
+      
+
+      
+      
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deprem Araştırma Projesi - Veri Seti Analiz Dashboard v2.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;500;700;900&display=swap');
+<pre><code>    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --bg-primary: #0f0f23;
+        --bg-secondary: #1a1a2e;
+        --bg-card: #16213e;
+        --bg-card-hover: #1e2a47;
+        --accent-primary: #00f5d4;
+        --accent-secondary: #00bbf9;
+        --accent-tertiary: #fee440;
+        --accent-warning: #f15bb5;
+        --text-primary: #ffffff;
+        --text-secondary: #b0b3b8;
+        --text-muted: #6c757d;
+        --border-color: #2a3f5f;
+        --success: #06ffa5;
+        --error: #ff006e;
+    }
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    .matrix-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(0, 245, 212, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(0, 187, 249, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(254, 228, 64, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    .grain-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E&quot;);
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    /* Header Styles */
+    .header {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+        padding: 2.5rem 0;
+        border-bottom: 3px solid var(--accent-primary);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+    
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(0, 245, 212, 0.1) 50%, 
+            transparent 100%);
+        animation: shimmer 8s infinite;
+    }
+    
+    @keyframes shimmer {
+        0%, 100% { transform: translateX(-50%); }
+        50% { transform: translateX(50%); }
+    }
+    
+    .header-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+    
+    .project-label {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        color: var(--accent-secondary);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    
+    h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+    
+    .version-badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: rgba(0, 245, 212, 0.1);
+        border: 1px solid var(--accent-primary);
+        border-radius: 20px;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.85rem;
+        color: var(--accent-primary);
+        margin-top: 1rem;
+    }
+    
+    .author-info {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+    
+    .author-info strong {
+        color: var(--accent-tertiary);
+        font-weight: 600;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+    
+    .stat-card:hover::before {
+        transform: scaleX(1);
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 10px 40px rgba(0, 245, 212, 0.15);
+    }
+    
+    .stat-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-value {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+    }
+    
+    .stat-sublabel {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+    }
+    
+    /* Section Styles */
+    .section {
+        background: var(--bg-card);
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
+        position: relative;
+    }
+    
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+    }
+    
+    .section-title {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .section-title::before {
+        content: '▸';
+        color: var(--accent-secondary);
+    }
+    
+    .filter-group {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        background: rgba(0, 245, 212, 0.1);
+        border: 1px solid var(--accent-primary);
+        border-radius: 20px;
+        color: var(--accent-primary);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'IBM Plex Mono', monospace;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--accent-primary);
+        color: var(--bg-primary);
+    }
+    
+    /* Chart Container */
+    .chart-container {
+        position: relative;
+        height: 400px;
+        margin: 1.5rem 0;
+    }
+    
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    /* Dataset Cards */
+    .dataset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .dataset-card {
+        background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .dataset-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .dataset-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 30px rgba(0, 245, 212, 0.2);
+    }
+    
+    .dataset-card:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .dataset-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+    }
+    
+    .dataset-name {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        flex: 1;
+    }
+    
+    .score-badge {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.3rem;
+        font-weight: 700;
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        color: var(--bg-primary);
+        box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3);
+    }
+    
+    .dataset-meta {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .badge {
+        padding: 0.3rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+    
+    .badge-category {
+        background: rgba(0, 245, 212, 0.15);
+        border: 1px solid var(--accent-primary);
+        color: var(--accent-primary);
+    }
+    
+    .badge-sensor {
+        background: rgba(0, 187, 249, 0.15);
+        border: 1px solid var(--accent-secondary);
+        color: var(--accent-secondary);
+    }
+    
+    .badge-access {
+        background: rgba(6, 255, 165, 0.15);
+        border: 1px solid var(--success);
+        color: var(--success);
+    }
+    
+    .dataset-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        margin: 1rem 0;
+        font-size: 0.85rem;
+    }
+    
+    .info-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-label {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.2rem;
+    }
+    
+    .info-value {
+        font-family: 'IBM Plex Mono', monospace;
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    
+    .dataset-description {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: rgba(0, 187, 249, 0.05);
+        border-left: 3px solid var(--accent-secondary);
+        border-radius: 4px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+    }
+    
+    .dataset-pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1rem 0;
+        font-size: 0.8rem;
+    }
+    
+    .pros, .cons {
+        padding: 0.8rem;
+        border-radius: 6px;
+    }
+    
+    .pros {
+        background: rgba(6, 255, 165, 0.05);
+        border: 1px solid rgba(6, 255, 165, 0.2);
+    }
+    
+    .cons {
+        background: rgba(255, 0, 110, 0.05);
+        border: 1px solid rgba(255, 0, 110, 0.2);
+    }
+    
+    .pros h4, .cons h4 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+    
+    .pros h4 { color: var(--success); }
+    .cons h4 { color: var(--error); }
+    
+    .pros ul, .cons ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .pros li::before {
+        content: '✓ ';
+        color: var(--success);
+        font-weight: bold;
+    }
+    
+    .cons li::before {
+        content: '✗ ';
+        color: var(--error);
+        font-weight: bold;
+    }
+    
+    .dataset-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .dataset-link {
+        color: var(--accent-secondary);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: all 0.3s ease;
+    }
+    
+    .dataset-link:hover {
+        color: var(--accent-primary);
+        gap: 0.6rem;
+    }
+    
+    .dataset-reference {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+    
+    /* Reference Section */
+    .references-section {
+        margin-top: 3rem;
+    }
+    
+    .references-toggle {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .references-toggle:hover {
+        border-color: var(--accent-primary);
+        background: var(--bg-card-hover);
+    }
+    
+    .references-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+    
+    .references-content.expanded {
+        max-height: 3000px;
+    }
+    
+    .reference-list {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 0 0 12px 12px;
+        padding: 2rem;
+        border-top: none;
+    }
+    
+    .reference-item {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background: rgba(0, 245, 212, 0.03);
+        border-left: 3px solid var(--accent-primary);
+        border-radius: 4px;
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    
+    .reference-item strong {
+        color: var(--accent-tertiary);
+    }
+    
+    .reference-item a {
+        color: var(--accent-secondary);
+        text-decoration: none;
+        word-break: break-all;
+    }
+    
+    .reference-item a:hover {
+        color: var(--accent-primary);
+        text-decoration: underline;
+    }
+    
+    /* Comparison Table */
+    .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        font-size: 0.85rem;
+    }
+    
+    .comparison-table th {
+        background: var(--bg-secondary);
+        padding: 1rem;
+        text-align: left;
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 700;
+        color: var(--accent-primary);
+        border-bottom: 2px solid var(--accent-primary);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .comparison-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .comparison-table tr:hover {
+        background: rgba(0, 245, 212, 0.05);
+    }
+    
+    /* Tabs */
+    .tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--border-color);
+    }
+    
+    .tab {
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .tab:hover {
+        color: var(--accent-primary);
+    }
+    
+    .tab.active {
+        color: var(--accent-primary);
+        border-bottom-color: var(--accent-primary);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Search Bar */
+    .search-container {
+        margin: 2rem 0;
+    }
+    
+    .search-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .search-input:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+    }
+    
+    .search-input::placeholder {
+        color: var(--text-muted);
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 3rem 0;
+        margin-top: 4rem;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .dataset-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .chart-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .dataset-pros-cons {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    /* Loading Animation */
+    .loading {
+        text-align: center;
+        padding: 3rem;
+        color: var(--accent-primary);
+    }
+    
+    .loading::after {
+        content: '...';
+        animation: dots 1.5s infinite;
+    }
+    
+    @keyframes dots {
+        0%, 20% { content: '.'; }
+        40% { content: '..'; }
+        60%, 100% { content: '...'; }
+    }
+    
+    /* Scroll to top button */
+    .scroll-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--accent-primary);
+        border: none;
+        border-radius: 50%;
+        color: var(--bg-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 245, 212, 0.3);
+    }
+    
+    .scroll-top.visible {
+        opacity: 1;
+    }
+    
+    .scroll-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 30px rgba(0, 245, 212, 0.5);
+    }
+&lt;/style&gt;
+</code></pre>
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="grain-overlay"></div>
+<pre><code>&lt;header class=&quot;header&quot;&gt;
+    &lt;div class=&quot;container header-content&quot;&gt;
+        &lt;div class=&quot;project-label&quot;&gt;Akademik Araştırma Projesi&lt;/div&gt;
+        &lt;h1&gt;Deprem Araştırma Projesi&lt;/h1&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;Mobil ve Edge Cihazlardan Deprem Tespiti - Kapsamlı Veri Seti Analizi&lt;/p&gt;
+        &lt;div class=&quot;version-badge&quot;&gt;v2.0 - 19 Veri Seti Analizi&lt;/div&gt;
+        &lt;div class=&quot;author-info&quot;&gt;
+            Hazırlayan: &lt;strong&gt;Muhammed ŞARA&lt;/strong&gt; | Tarih: 04 Ocak 2026
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+    &lt;!-- İstatistik Kartları --&gt;
+    &lt;div class=&quot;stats-grid&quot;&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;📊&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;totalDatasets&quot;&gt;19&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;Toplam Veri Seti&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;Doğrulanmış Kaynaklar&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;🌍&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;earthquakeDatasets&quot;&gt;6&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;Deprem Odaklı&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;Birincil Veri Kaynakları&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;🏃&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;harDatasets&quot;&gt;7&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;HAR Veri Setleri&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;İnsan Aktivitesi Tanıma&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;📡&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;additionalDatasets&quot;&gt;6&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;Ek Veri Setleri&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;Destekleyici Kaynaklar&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;⭐&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;avgScore&quot;&gt;7.6&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;Ortalama Skor&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;Uygunluk Değerlendirmesi&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;stat-card&quot;&gt;
+            &lt;div class=&quot;stat-icon&quot;&gt;🔓&lt;/div&gt;
+            &lt;div class=&quot;stat-value&quot; id=&quot;openAccess&quot;&gt;16&lt;/div&gt;
+            &lt;div class=&quot;stat-label&quot;&gt;Açık Erişim&lt;/div&gt;
+            &lt;div class=&quot;stat-sublabel&quot;&gt;Ücretsiz Kullanılabilir&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Tabs --&gt;
+    &lt;div class=&quot;tabs&quot;&gt;
+        &lt;button class=&quot;tab active&quot; onclick=&quot;switchTab('overview')&quot;&gt;📈 Genel Bakış&lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;switchTab('datasets')&quot;&gt;📚 Veri Setleri&lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;switchTab('comparison')&quot;&gt;⚖️ Karşılaştırma&lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;switchTab('analysis')&quot;&gt;🔬 Analiz&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Tab Contents --&gt;
+    &lt;div id=&quot;overview&quot; class=&quot;tab-content active&quot;&gt;
+        &lt;!-- Grafikler --&gt;
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Uygunluk Skoru Dağılımı&lt;/h2&gt;
+                &lt;div class=&quot;filter-group&quot;&gt;
+                    &lt;button class=&quot;filter-btn active&quot; onclick=&quot;filterChart('all')&quot;&gt;Tümü&lt;/button&gt;
+                    &lt;button class=&quot;filter-btn&quot; onclick=&quot;filterChart('earthquake')&quot;&gt;Deprem&lt;/button&gt;
+                    &lt;button class=&quot;filter-btn&quot; onclick=&quot;filterChart('har')&quot;&gt;HAR&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;chart-container&quot;&gt;
+                &lt;canvas id=&quot;suitabilityChart&quot;&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;chart-grid&quot;&gt;
+            &lt;div class=&quot;section&quot;&gt;
+                &lt;div class=&quot;section-header&quot;&gt;
+                    &lt;h2 class=&quot;section-title&quot;&gt;Kategori Dağılımı&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;chart-container&quot;&gt;
+                    &lt;canvas id=&quot;categoryChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;section&quot;&gt;
+                &lt;div class=&quot;section-header&quot;&gt;
+                    &lt;h2 class=&quot;section-title&quot;&gt;Erişim Durumu&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;chart-container&quot;&gt;
+                    &lt;canvas id=&quot;accessChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Örnekleme Frekansı Analizi&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;chart-container&quot;&gt;
+                &lt;canvas id=&quot;samplingChart&quot;&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div id=&quot;datasets&quot; class=&quot;tab-content&quot;&gt;
+        &lt;div class=&quot;search-container&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;search-input&quot; id=&quot;searchInput&quot; placeholder=&quot;🔍 Veri seti ara... (isim, kaynak, sensör türü)&quot;&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Deprem Odaklı Veri Setleri&lt;/h2&gt;
+                &lt;span class=&quot;badge badge-category&quot;&gt;6 Veri Seti&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dataset-grid&quot; id=&quot;earthquakeGrid&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;HAR Veri Setleri&lt;/h2&gt;
+                &lt;span class=&quot;badge badge-category&quot;&gt;7 Veri Seti&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dataset-grid&quot; id=&quot;harGrid&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Ek Veri Setleri&lt;/h2&gt;
+                &lt;span class=&quot;badge badge-category&quot;&gt;6 Veri Seti&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;dataset-grid&quot; id=&quot;additionalGrid&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div id=&quot;comparison&quot; class=&quot;tab-content&quot;&gt;
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Detaylı Karşılaştırma Tablosu&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;overflow-x: auto;&quot;&gt;
+                &lt;table class=&quot;comparison-table&quot; id=&quot;comparisonTable&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Veri Seti&lt;/th&gt;
+                            &lt;th&gt;Kategori&lt;/th&gt;
+                            &lt;th&gt;Sensörler&lt;/th&gt;
+                            &lt;th&gt;Örnekleme&lt;/th&gt;
+                            &lt;th&gt;Skor&lt;/th&gt;
+                            &lt;th&gt;Erişim&lt;/th&gt;
+                            &lt;th&gt;Kaynak&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody id=&quot;comparisonTableBody&quot;&gt;&lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div id=&quot;analysis&quot; class=&quot;tab-content&quot;&gt;
+        &lt;div class=&quot;section&quot;&gt;
+            &lt;div class=&quot;section-header&quot;&gt;
+                &lt;h2 class=&quot;section-title&quot;&gt;Sensör Tipi Analizi&lt;/h2&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;chart-container&quot;&gt;
+                &lt;canvas id=&quot;sensorChart&quot;&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;chart-grid&quot;&gt;
+            &lt;div class=&quot;section&quot;&gt;
+                &lt;div class=&quot;section-header&quot;&gt;
+                    &lt;h2 class=&quot;section-title&quot;&gt;Format Dağılımı&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;chart-container&quot;&gt;
+                    &lt;canvas id=&quot;formatChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;section&quot;&gt;
+                &lt;div class=&quot;section-header&quot;&gt;
+                    &lt;h2 class=&quot;section-title&quot;&gt;Lisans Türleri&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;chart-container&quot;&gt;
+                    &lt;canvas id=&quot;licenseChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Kaynaklar Bölümü --&gt;
+    &lt;div class=&quot;references-section&quot;&gt;
+        &lt;div class=&quot;references-toggle&quot; onclick=&quot;toggleReferences()&quot;&gt;
+            &lt;div&gt;
+                &lt;h3 style=&quot;font-family: 'IBM Plex Mono', monospace; color: var(--accent-tertiary);&quot;&gt;
+                    📚 Akademik Kaynaklar ve Referanslar
+                &lt;/h3&gt;
+                &lt;p style=&quot;color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;&quot;&gt;
+                    Tüm veri setleri için akademik yayınlar ve resmi dokümantasyon linkleri
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;span id=&quot;referencesArrow&quot; style=&quot;font-size: 2rem; color: var(--accent-primary); transition: transform 0.3s ease;&quot;&gt;▼&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;references-content&quot; id=&quot;referencesContent&quot;&gt;
+            &lt;div class=&quot;reference-list&quot; id=&quot;referenceList&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;footer class=&quot;footer&quot;&gt;
+    &lt;p&gt;Deprem Araştırma Projesi - Veri Seti Analiz Dashboard v2.0&lt;/p&gt;
+    &lt;p&gt;Hazırlayan: Muhammed ŞARA | 2026&lt;/p&gt;
+    &lt;p style=&quot;margin-top: 1rem; font-size: 0.85rem;&quot;&gt;
+        Bu dashboard, akademik araştırma amaçlı hazırlanmıştır.&lt;br&gt;
+        Tüm veri setleri doğrulanmış kaynaklardan derlenmiştir.
+    &lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;button class=&quot;scroll-top&quot; id=&quot;scrollTop&quot; onclick=&quot;scrollToTop()&quot;&gt;↑&lt;/button&gt;
+
+&lt;script&gt;
+    // Veri seti verilerini buraya ekleyelim
+    const datasetsData = {
+        &quot;earthquake_focused&quot;: [
+            {
+                &quot;name&quot;: &quot;MyShake Dataset&quot;,
+                &quot;category&quot;: &quot;Mobil + Deprem&quot;,
+                &quot;source&quot;: &quot;UC Berkeley&quot;,
+                &quot;url&quot;: &quot;https://myshake.berkeley.edu/&quot;,
+                &quot;reference&quot;: &quot;Kong et al. (2016), Science Advances&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;, &quot;GPS&quot;],
+                &quot;sampling_rate&quot;: &quot;25 Hz&quot;,
+                &quot;samples&quot;: 27527,
+                &quot;format&quot;: [&quot;CSV&quot;, &quot;JSON&quot;],
+                &quot;suitability_score&quot;: 10,
+                &quot;usage&quot;: &quot;Direkt kullanılabilir - Deprem/insan ayrımı&quot;,
+                &quot;pros&quot;: [&quot;Mobil cihaz verisi&quot;, &quot;Etiketli veri&quot;, &quot;GPS entegrasyonu&quot;],
+                &quot;cons&quot;: [&quot;Düşük örnekleme frekansı&quot;],
+                &quot;availability&quot;: &quot;Request required&quot;,
+                &quot;license&quot;: &quot;Academic use&quot;
+            },
+            {
+                &quot;name&quot;: &quot;STEAD Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Sinyal İşleme&quot;,
+                &quot;source&quot;: &quot;Stanford University&quot;,
+                &quot;url&quot;: &quot;https://github.com/smousavi05/STEAD&quot;,
+                &quot;reference&quot;: &quot;Mousavi et al. (2019), IEEE Access&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer (Z, N, E)&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;samples&quot;: 1200000,
+                &quot;format&quot;: [&quot;npy&quot;, &quot;csv&quot;, &quot;json&quot;, &quot;mseed&quot;],
+                &quot;suitability_score&quot;: 9,
+                &quot;usage&quot;: &quot;Transfer learning için ideal&quot;,
+                &quot;pros&quot;: [&quot;Büyük veri seti&quot;, &quot;P/S fazı etiketli&quot;, &quot;Yüksek kalite&quot;],
+                &quot;cons&quot;: [&quot;Sabit istasyon verisi&quot;, &quot;IMU değil&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;MIT License&quot;
+            },
+            {
+                &quot;name&quot;: &quot;Grillo-OpenEEW Dataset&quot;,
+                &quot;category&quot;: &quot;IoT + Deprem&quot;,
+                &quot;source&quot;: &quot;Grillo Network&quot;,
+                &quot;url&quot;: &quot;https://openeew.com/&quot;,
+                &quot;reference&quot;: &quot;Grillo et al. (2019), Seismological Research Letters&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer (3-axis)&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;format&quot;: [&quot;CSV&quot;, &quot;JSON&quot;],
+                &quot;suitability_score&quot;: 8,
+                &quot;usage&quot;: &quot;IoT uygulamaları ve PGA hesaplama&quot;,
+                &quot;pros&quot;: [&quot;Gerçek zamanlı&quot;, &quot;Düşük maliyet&quot;, &quot;IoT uyumlu&quot;],
+                &quot;cons&quot;: [&quot;Ön işlem gerektirir&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Apache 2.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;SCSN Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Bölgesel&quot;,
+                &quot;source&quot;: &quot;Caltech + USGS&quot;,
+                &quot;url&quot;: &quot;https://scedc.caltech.edu/&quot;,
+                &quot;reference&quot;: &quot;Southern California Earthquake Data Center&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;1-100 Hz&quot;,
+                &quot;format&quot;: [&quot;mseed&quot;, &quot;phase&quot;, &quot;catalog&quot;],
+                &quot;suitability_score&quot;: 8,
+                &quot;usage&quot;: &quot;Bölgesel validasyon&quot;,
+                &quot;pros&quot;: [&quot;Tarihsel veri&quot;, &quot;Gerçek deprem kayıtları&quot;],
+                &quot;cons&quot;: [&quot;Mobil cihaz verisi değil&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Public domain&quot;
+            },
+            {
+                &quot;name&quot;: &quot;ShakeMap Dataset&quot;,
+                &quot;category&quot;: &quot;Deprem + Şiddet Haritası&quot;,
+                &quot;source&quot;: &quot;USGS&quot;,
+                &quot;url&quot;: &quot;https://earthquake.usgs.gov/data/shakemap/&quot;,
+                &quot;reference&quot;: &quot;Worden et al. (2020), Earthquake Spectra&quot;,
+                &quot;sensors&quot;: [&quot;N/A&quot;],
+                &quot;sampling_rate&quot;: &quot;N/A&quot;,
+                &quot;format&quot;: [&quot;XML&quot;, &quot;JSON&quot;, &quot;Grid&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;PGA/MMI regresyon modeli&quot;,
+                &quot;pros&quot;: [&quot;Şiddet tahmini&quot;, &quot;Global kapsam&quot;],
+                &quot;cons&quot;: [&quot;Ham sensör verisi yok&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Public domain&quot;
+            },
+            {
+                &quot;name&quot;: &quot;UUSS Dataset&quot;,
+                &quot;category&quot;: &quot;Mikro-Deprem&quot;,
+                &quot;source&quot;: &quot;University of Utah&quot;,
+                &quot;url&quot;: &quot;https://www.seis.utah.edu/&quot;,
+                &quot;reference&quot;: &quot;University of Utah Seismograph Stations&quot;,
+                &quot;sensors&quot;: [&quot;Seismograph&quot;],
+                &quot;sampling_rate&quot;: &quot;Variable&quot;,
+                &quot;format&quot;: [&quot;csv&quot;, &quot;segy&quot;, &quot;mseed&quot;],
+                &quot;suitability_score&quot;: 6,
+                &quot;usage&quot;: &quot;Mikro-deprem analizi&quot;,
+                &quot;pros&quot;: [&quot;Detaylı mikro-deprem kayıtları&quot;],
+                &quot;cons&quot;: [&quot;Bölgesel (Utah)&quot;],
+                &quot;availability&quot;: &quot;Request required&quot;,
+                &quot;license&quot;: &quot;Academic use&quot;
+            }
+        ],
+        &quot;har_datasets&quot;: [
+            {
+                &quot;name&quot;: &quot;MobiAct Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + IMU&quot;,
+                &quot;source&quot;: &quot;Hellenic Mediterranean University&quot;,
+                &quot;url&quot;: &quot;https://bmi.hmu.gr/the-mobifall-and-mobiact-datasets-2/&quot;,
+                &quot;reference&quot;: &quot;Chatzaki et al. (2017), Pervasive Technologies&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;],
+                &quot;sampling_rate&quot;: &quot;20 Hz&quot;,
+                &quot;format&quot;: [&quot;txt&quot;, &quot;csv&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;İnsan aktivitesi baseline&quot;,
+                &quot;pros&quot;: [&quot;Mobil cihaz&quot;, &quot;Düşme tespiti&quot;],
+                &quot;cons&quot;: [&quot;Yeniden etiketleme gerekir&quot;],
+                &quot;availability&quot;: &quot;Request required&quot;,
+                &quot;license&quot;: &quot;Academic use&quot;
+            },
+            {
+                &quot;name&quot;: &quot;UniMiB SHAR Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + Smartphone&quot;,
+                &quot;source&quot;: &quot;University of Milano-Bicocca&quot;,
+                &quot;url&quot;: &quot;https://www.sal.disco.unimib.it/technologies/unimib-shar/&quot;,
+                &quot;reference&quot;: &quot;Micucci et al. (2017), Applied Sciences&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer (3-axis)&quot;],
+                &quot;sampling_rate&quot;: &quot;50 Hz&quot;,
+                &quot;format&quot;: [&quot;mat&quot;, &quot;arff&quot;, &quot;csv&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Düşme/aktivite ayrımı&quot;,
+                &quot;pros&quot;: [&quot;Düşme senaryoları&quot;, &quot;Smartphone verisi&quot;],
+                &quot;cons&quot;: [&quot;Deprem etiketi yok&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;HAPT Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + IMU&quot;,
+                &quot;source&quot;: &quot;UCI Repository&quot;,
+                &quot;url&quot;: &quot;https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones&quot;,
+                &quot;reference&quot;: &quot;Reyes-Ortiz et al. (2016), Expert Systems with Applications&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;, &quot;Gyroscope&quot;],
+                &quot;sampling_rate&quot;: &quot;50 Hz&quot;,
+                &quot;format&quot;: [&quot;txt&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Gyro+Accel fusion&quot;,
+                &quot;pros&quot;: [&quot;Gyroscope verisi&quot;, &quot;Postür geçişleri&quot;],
+                &quot;cons&quot;: [&quot;Küçük veri seti&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;PAMAP2 Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + Multi-sensor&quot;,
+                &quot;source&quot;: &quot;UCI Repository&quot;,
+                &quot;url&quot;: &quot;https://archive.ics.uci.edu/ml/datasets/PAMAP2+Physical+Activity+Monitoring&quot;,
+                &quot;reference&quot;: &quot;Reiss &amp; Stricker (2012), ISWC&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;, &quot;Gyroscope&quot;, &quot;Magnetometer&quot;, &quot;Heart Rate&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;format&quot;: [&quot;txt&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Multi-sensor fusion&quot;,
+                &quot;pros&quot;: [&quot;Çoklu sensör&quot;, &quot;Yüksek örnekleme&quot;],
+                &quot;cons&quot;: [&quot;Az katılımcı&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;WISDM Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + Mobile&quot;,
+                &quot;source&quot;: &quot;Fordham University&quot;,
+                &quot;url&quot;: &quot;http://www.cis.fordham.edu/wisdm/dataset.php&quot;,
+                &quot;reference&quot;: &quot;Kwapisz et al. (2011), SIGKDD Explorations&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer (X, Y, Z)&quot;],
+                &quot;sampling_rate&quot;: &quot;20 Hz&quot;,
+                &quot;samples&quot;: 1098207,
+                &quot;format&quot;: [&quot;txt&quot;, &quot;arff&quot;, &quot;csv&quot;],
+                &quot;suitability_score&quot;: 6,
+                &quot;usage&quot;: &quot;Aktivite tanıma baseline&quot;,
+                &quot;pros&quot;: [&quot;Büyük veri seti&quot;, &quot;Basit format&quot;],
+                &quot;cons&quot;: [&quot;Düşük örnekleme&quot;, &quot;Gyro yok&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Academic use&quot;
+            },
+            {
+                &quot;name&quot;: &quot;UCI HAR Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + Smartphone&quot;,
+                &quot;source&quot;: &quot;UCI Repository&quot;,
+                &quot;url&quot;: &quot;https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones&quot;,
+                &quot;reference&quot;: &quot;Anguita et al. (2013), ESANN&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;, &quot;Gyroscope&quot;],
+                &quot;sampling_rate&quot;: &quot;50 Hz&quot;,
+                &quot;samples&quot;: 10299,
+                &quot;format&quot;: [&quot;txt&quot;, &quot;csv&quot;],
+                &quot;suitability_score&quot;: 6,
+                &quot;usage&quot;: &quot;Feature extraction referansı&quot;,
+                &quot;pros&quot;: [&quot;Özellik mühendisliği örneği&quot;],
+                &quot;cons&quot;: [&quot;Küçük veri seti&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;REALDISP Dataset&quot;,
+                &quot;category&quot;: &quot;HAR + IMU&quot;,
+                &quot;source&quot;: &quot;Various&quot;,
+                &quot;url&quot;: &quot;https://archive.ics.uci.edu/ml/datasets/REALDISP+Activity+Recognition+Dataset&quot;,
+                &quot;reference&quot;: &quot;Banos et al. (2012), Sensors&quot;,
+                &quot;sensors&quot;: [&quot;Accelerometer&quot;, &quot;Gyroscope&quot;],
+                &quot;sampling_rate&quot;: &quot;50 Hz&quot;,
+                &quot;format&quot;: [&quot;txt&quot;, &quot;csv&quot;],
+                &quot;suitability_score&quot;: 6,
+                &quot;usage&quot;: &quot;Düşme ve hareket aktiviteleri&quot;,
+                &quot;pros&quot;: [&quot;Gerçek cihaz verisi&quot;],
+                &quot;cons&quot;: [&quot;Orta boyut&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            }
+        ],
+        &quot;additional_datasets&quot;: [
+            {
+                &quot;name&quot;: &quot;INSTANCE Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + İtalya&quot;,
+                &quot;source&quot;: &quot;INGV (Italian National Institute)&quot;,
+                &quot;url&quot;: &quot;http://terremoti.ingv.it/&quot;,
+                &quot;reference&quot;: &quot;Michelini et al. (2021), Earth System Science Data&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;format&quot;: [&quot;mseed&quot;, &quot;json&quot;],
+                &quot;suitability_score&quot;: 8,
+                &quot;usage&quot;: &quot;Avrupa deprem verileri&quot;,
+                &quot;pros&quot;: [&quot;Gerçek deprem kayıtları&quot;, &quot;Gürültü örnekleri&quot;],
+                &quot;cons&quot;: [&quot;Bölgesel (İtalya)&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;CC BY 4.0&quot;
+            },
+            {
+                &quot;name&quot;: &quot;CREW Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Bölgesel&quot;,
+                &quot;source&quot;: &quot;Canadian Network&quot;,
+                &quot;url&quot;: &quot;https://earthquakescanada.nrcan.gc.ca/&quot;,
+                &quot;reference&quot;: &quot;Yoon et al. (2022), Seismica&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;Variable&quot;,
+                &quot;format&quot;: [&quot;mseed&quot;, &quot;hdf5&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Kalite kontrollü dalga formları&quot;,
+                &quot;pros&quot;: [&quot;Yüksek kalite&quot;, &quot;Küratörlü&quot;],
+                &quot;cons&quot;: [&quot;Orta boyut&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Open data&quot;
+            },
+            {
+                &quot;name&quot;: &quot;LEN-DB Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Local&quot;,
+                &quot;source&quot;: &quot;Various seismic networks&quot;,
+                &quot;url&quot;: &quot;https://doi.org/10.1785/0220200276&quot;,
+                &quot;reference&quot;: &quot;Magrini et al. (2020), SRL&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;Variable&quot;,
+                &quot;format&quot;: [&quot;mseed&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Global yerel depremler&quot;,
+                &quot;pros&quot;: [&quot;Global kapsam&quot;],
+                &quot;cons&quot;: [&quot;Dağınık yapı&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Various&quot;
+            },
+            {
+                &quot;name&quot;: &quot;EQTransformer Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Deep Learning&quot;,
+                &quot;source&quot;: &quot;Stanford (based on STEAD)&quot;,
+                &quot;url&quot;: &quot;https://github.com/smousavi05/EQTransformer&quot;,
+                &quot;reference&quot;: &quot;Mousavi et al. (2020), Nature Communications&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;format&quot;: [&quot;hdf5&quot;, &quot;json&quot;],
+                &quot;suitability_score&quot;: 8,
+                &quot;usage&quot;: &quot;Deep learning faz tespiti&quot;,
+                &quot;pros&quot;: [&quot;DL modeli ile birlikte&quot;, &quot;Pre-processed&quot;],
+                &quot;cons&quot;: [&quot;STEAD türevi&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;MIT License&quot;
+            },
+            {
+                &quot;name&quot;: &quot;GeoNet Dataset&quot;,
+                &quot;category&quot;: &quot;Sismik + Yeni Zelanda&quot;,
+                &quot;source&quot;: &quot;GNS Science&quot;,
+                &quot;url&quot;: &quot;https://www.geonet.org.nz/&quot;,
+                &quot;reference&quot;: &quot;GeoNet New Zealand&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;, &quot;Strong motion&quot;],
+                &quot;sampling_rate&quot;: &quot;Variable&quot;,
+                &quot;format&quot;: [&quot;mseed&quot;, &quot;QuakeML&quot;],
+                &quot;suitability_score&quot;: 7,
+                &quot;usage&quot;: &quot;Pasifik Halka-i Ateş verileri&quot;,
+                &quot;pros&quot;: [&quot;Gerçek zamanlı&quot;, &quot;Yüksek deprem aktivitesi&quot;],
+                &quot;cons&quot;: [&quot;Bölgesel&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;Open data&quot;
+            },
+            {
+                &quot;name&quot;: &quot;STanford EArthquake Dataset (STEAD-2)&quot;,
+                &quot;category&quot;: &quot;Sismik + Gelişmiş&quot;,
+                &quot;source&quot;: &quot;Stanford University&quot;,
+                &quot;url&quot;: &quot;https://github.com/smousavi05/STEAD&quot;,
+                &quot;reference&quot;: &quot;Mousavi et al. (2022), Geophysics&quot;,
+                &quot;sensors&quot;: [&quot;Seismometer&quot;],
+                &quot;sampling_rate&quot;: &quot;100 Hz&quot;,
+                &quot;format&quot;: [&quot;hdf5&quot;],
+                &quot;suitability_score&quot;: 9,
+                &quot;usage&quot;: &quot;Güncellenmiş STEAD versiyonu&quot;,
+                &quot;pros&quot;: [&quot;Daha fazla veri&quot;, &quot;Gelişmiş etiketleme&quot;],
+                &quot;cons&quot;: [&quot;STEAD ile overlap&quot;],
+                &quot;availability&quot;: &quot;Open access&quot;,
+                &quot;license&quot;: &quot;MIT License&quot;
+            }
+        ]
+    };
+    
+    // Tüm veri setlerini birleştir
+    const allDatasets = [
+        ...datasetsData.earthquake_focused,
+        ...datasetsData.har_datasets,
+        ...datasetsData.additional_datasets
+    ];
+    
+    // İstatistikleri güncelle
+    document.getElementById('totalDatasets').textContent = allDatasets.length;
+    document.getElementById('earthquakeDatasets').textContent = datasetsData.earthquake_focused.length;
+    document.getElementById('harDatasets').textContent = datasetsData.har_datasets.length;
+    document.getElementById('additionalDatasets').textContent = datasetsData.additional_datasets.length;
+    
+    const avgScore = allDatasets.reduce((sum, ds) =&gt; sum + ds.suitability_score, 0) / allDatasets.length;
+    document.getElementById('avgScore').textContent = avgScore.toFixed(1);
+    
+    const openAccessCount = allDatasets.filter(ds =&gt; ds.availability === 'Open access').length;
+    document.getElementById('openAccess').textContent = openAccessCount;
+    
+    // Tab switching
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab').forEach(tab =&gt; tab.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content =&gt; content.classList.remove('active'));
+        
+        event.target.classList.add('active');
+        document.getElementById(tabName).classList.add('active');
+    }
+    
+    // References toggle
+    function toggleReferences() {
+        const content = document.getElementById('referencesContent');
+        const arrow = document.getElementById('referencesArrow');
+        
+        if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            content.classList.add('expanded');
+            arrow.style.transform = 'rotate(180deg)';
+        }
+    }
+    
+    // Scroll to top
+    window.addEventListener('scroll', () =&gt; {
+        const scrollTop = document.getElementById('scrollTop');
+        if (window.pageYOffset &gt; 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
+        }
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Veri seti kartlarını oluştur
+    function createDatasetCard(dataset) {
+        const sensorsHtml = dataset.sensors.map(s =&gt; 
+            `&lt;span class=&quot;badge badge-sensor&quot;&gt;${s}&lt;/span&gt;`
+        ).join('');
+        
+        const prosHtml = dataset.pros ? dataset.pros.map(p =&gt; `&lt;li&gt;${p}&lt;/li&gt;`).join('') : '';
+        const consHtml = dataset.cons ? dataset.cons.map(c =&gt; `&lt;li&gt;${c}&lt;/li&gt;`).join('') : '';
+        
+        const formatsHtml = dataset.format.map(f =&gt; 
+            `&lt;span class=&quot;badge badge-sensor&quot;&gt;${f}&lt;/span&gt;`
+        ).join('');
+        
+        return `
+            &lt;div class=&quot;dataset-card&quot; data-name=&quot;${dataset.name}&quot; data-category=&quot;${dataset.category}&quot; data-sensors=&quot;${dataset.sensors.join(' ')}&quot;&gt;
+                &lt;div class=&quot;dataset-header&quot;&gt;
+                    &lt;div class=&quot;dataset-name&quot;&gt;${dataset.name}&lt;/div&gt;
+                    &lt;div class=&quot;score-badge&quot;&gt;${dataset.suitability_score}&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;dataset-meta&quot;&gt;
+                    &lt;span class=&quot;badge badge-category&quot;&gt;${dataset.category}&lt;/span&gt;
+                    ${dataset.availability === 'Open access' ? '&lt;span class=&quot;badge badge-access&quot;&gt;Open Access&lt;/span&gt;' : ''}
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;dataset-info&quot;&gt;
+                    &lt;div class=&quot;info-item&quot;&gt;
+                        &lt;span class=&quot;info-label&quot;&gt;Kaynak&lt;/span&gt;
+                        &lt;span class=&quot;info-value&quot;&gt;${dataset.source}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;info-item&quot;&gt;
+                        &lt;span class=&quot;info-label&quot;&gt;Örnekleme&lt;/span&gt;
+                        &lt;span class=&quot;info-value&quot;&gt;${dataset.sampling_rate}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;info-item&quot;&gt;
+                        &lt;span class=&quot;info-label&quot;&gt;Lisans&lt;/span&gt;
+                        &lt;span class=&quot;info-value&quot;&gt;${dataset.license}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;info-item&quot;&gt;
+                        &lt;span class=&quot;info-label&quot;&gt;Format&lt;/span&gt;
+                        &lt;span class=&quot;info-value&quot;&gt;${formatsHtml}&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div style=&quot;margin: 1rem 0;&quot;&gt;
+                    ${sensorsHtml}
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;dataset-description&quot;&gt;
+                    &lt;strong&gt;Kullanım:&lt;/strong&gt; ${dataset.usage}
+                &lt;/div&gt;
+                
+                ${dataset.pros &amp;&amp; dataset.cons ? `
+                &lt;div class=&quot;dataset-pros-cons&quot;&gt;
+                    &lt;div class=&quot;pros&quot;&gt;
+                        &lt;h4&gt;✓ Avantajlar&lt;/h4&gt;
+                        &lt;ul&gt;${prosHtml}&lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;cons&quot;&gt;
+                        &lt;h4&gt;✗ Dezavantajlar&lt;/h4&gt;
+                        &lt;ul&gt;${consHtml}&lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                ` : ''}
+                
+                &lt;div class=&quot;dataset-footer&quot;&gt;
+                    &lt;a href=&quot;${dataset.url}&quot; target=&quot;_blank&quot; class=&quot;dataset-link&quot;&gt;
+                        Veri Setine Git →
+                    &lt;/a&gt;
+                    &lt;span class=&quot;dataset-reference&quot;&gt;${dataset.reference}&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `;
+    }
+    
+    // Veri setlerini gruplara yerleştir
+    document.getElementById('earthquakeGrid').innerHTML = datasetsData.earthquake_focused
+        .map(ds =&gt; createDatasetCard(ds)).join('');
+    document.getElementById('harGrid').innerHTML = datasetsData.har_datasets
+        .map(ds =&gt; createDatasetCard(ds)).join('');
+    document.getElementById('additionalGrid').innerHTML = datasetsData.additional_datasets
+        .map(ds =&gt; createDatasetCard(ds)).join('');
+    
+    // Karşılaştırma tablosunu doldur
+    const comparisonTableBody = document.getElementById('comparisonTableBody');
+    const sortedDatasets = [...allDatasets].sort((a, b) =&gt; b.suitability_score - a.suitability_score);
+    
+    sortedDatasets.forEach(dataset =&gt; {
+        const row = document.createElement('tr');
+        const sensorsHtml = dataset.sensors.map(s =&gt; `&lt;span class=&quot;badge badge-sensor&quot;&gt;${s}&lt;/span&gt;`).join(' ');
+        
+        row.innerHTML = `
+            &lt;td&gt;&lt;strong&gt;${dataset.name}&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;span class=&quot;badge badge-category&quot;&gt;${dataset.category}&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;${sensorsHtml}&lt;/td&gt;
+            &lt;td&gt;${dataset.sampling_rate}&lt;/td&gt;
+            &lt;td&gt;&lt;strong style=&quot;color: ${
+                dataset.suitability_score &gt;= 9 ? 'var(--accent-primary)' : 
+                dataset.suitability_score &gt;= 7 ? 'var(--accent-secondary)' : 
+                'var(--accent-tertiary)'
+            }&quot;&gt;${dataset.suitability_score}/10&lt;/strong&gt;&lt;/td&gt;
+            &lt;td&gt;${dataset.availability === 'Open access' ? 
+                '&lt;span class=&quot;badge badge-access&quot;&gt;Open&lt;/span&gt;' : 
+                '&lt;span class=&quot;badge&quot;&gt;Request&lt;/span&gt;'}&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&quot;${dataset.url}&quot; target=&quot;_blank&quot; style=&quot;color: var(--accent-secondary);&quot;&gt;Link&lt;/a&gt;&lt;/td&gt;
+        `;
+        
+        comparisonTableBody.appendChild(row);
+    });
+    
+    // Kaynakları doldur
+    const referenceList = document.getElementById('referenceList');
+    allDatasets.forEach((dataset, idx) =&gt; {
+        const refItem = document.createElement('div');
+        refItem.className = 'reference-item';
+        refItem.innerHTML = `
+            &lt;strong&gt;${idx + 1}. ${dataset.name}&lt;/strong&gt;&lt;br&gt;
+            ${dataset.reference}&lt;br&gt;
+            &lt;a href=&quot;${dataset.url}&quot; target=&quot;_blank&quot;&gt;${dataset.url}&lt;/a&gt;
+        `;
+        referenceList.appendChild(refItem);
+    });
+    
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) =&gt; {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll('.dataset-card').forEach(card =&gt; {
+            const name = card.getAttribute('data-name').toLowerCase();
+            const category = card.getAttribute('data-category').toLowerCase();
+            const sensors = card.getAttribute('data-sensors').toLowerCase();
+            
+            if (name.includes(searchTerm) || category.includes(searchTerm) || sensors.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+    
+    // Charts
+    Chart.defaults.color = '#b0b3b8';
+    Chart.defaults.borderColor = '#2a3f5f';
+    
+    // Uygunluk Skoru Grafiği
+    const suitabilityCtx = document.getElementById('suitabilityChart').getContext('2d');
+    new Chart(suitabilityCtx, {
+        type: 'bar',
+        data: {
+            labels: sortedDatasets.map(d =&gt; d.name),
+            datasets: [{
+                label: 'Uygunluk Skoru (1-10)',
+                data: sortedDatasets.map(d =&gt; d.suitability_score),
+                backgroundColor: sortedDatasets.map(d =&gt; {
+                    if (d.suitability_score &gt;= 9) return 'rgba(0, 245, 212, 0.8)';
+                    if (d.suitability_score &gt;= 7) return 'rgba(0, 187, 249, 0.8)';
+                    return 'rgba(254, 228, 64, 0.8)';
+                }),
+                borderColor: sortedDatasets.map(d =&gt; {
+                    if (d.suitability_score &gt;= 9) return '#00f5d4';
+                    if (d.suitability_score &gt;= 7) return '#00bbf9';
+                    return '#fee440';
+                }),
+                borderWidth: 2
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 10,
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: {
+                        font: { family: 'IBM Plex Mono', size: 10 }
+                    }
+                }
+            }
+        }
+    });
+    
+    // Kategori Dağılımı
+    const categoryCount = {};
+    allDatasets.forEach(d =&gt; {
+        const mainCategory = d.category.split(' + ')[0];
+        categoryCount[mainCategory] = (categoryCount[mainCategory] || 0) + 1;
+    });
+    
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(categoryCtx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(categoryCount),
+            datasets: [{
+                data: Object.values(categoryCount),
+                backgroundColor: [
+                    'rgba(0, 245, 212, 0.8)',
+                    'rgba(0, 187, 249, 0.8)',
+                    'rgba(254, 228, 64, 0.8)',
+                    'rgba(241, 91, 181, 0.8)',
+                    'rgba(6, 255, 165, 0.8)'
+                ],
+                borderWidth: 2,
+                borderColor: '#0f0f23'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { family: 'Inter', size: 11 },
+                        padding: 15
+                    }
+                }
+            }
+        }
+    });
+    
+    // Erişim Durumu
+    const accessCount = {
+        'Open access': allDatasets.filter(d =&gt; d.availability === 'Open access').length,
+        'Request required': allDatasets.filter(d =&gt; d.availability === 'Request required').length
+    };
+    
+    const accessCtx = document.getElementById('accessChart').getContext('2d');
+    new Chart(accessCtx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(accessCount),
+            datasets: [{
+                data: Object.values(accessCount),
+                backgroundColor: [
+                    'rgba(6, 255, 165, 0.8)',
+                    'rgba(254, 228, 64, 0.8)'
+                ],
+                borderWidth: 2,
+                borderColor: '#0f0f23'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { family: 'Inter', size: 11 },
+                        padding: 15
+                    }
+                }
+            }
+        }
+    });
+    
+    // Örnekleme Frekansı
+    const samplingRates = allDatasets.map(d =&gt; {
+        const rate = d.sampling_rate.match(/\d+/);
+        return rate ? parseInt(rate[0]) : 0;
+    });
+    
+    const samplingCtx = document.getElementById('samplingChart').getContext('2d');
+    new Chart(samplingCtx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Örnekleme Frekansı vs Uygunluk Skoru',
+                data: allDatasets.map((d, i) =&gt; ({
+                    x: samplingRates[i],
+                    y: d.suitability_score,
+                    label: d.name
+                })),
+                backgroundColor: 'rgba(0, 187, 249, 0.6)',
+                borderColor: '#00bbf9',
+                pointRadius: 8,
+                pointHoverRadius: 12
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.raw.label + ': ' + context.parsed.x + ' Hz, Skor: ' + context.parsed.y;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Örnekleme Frekansı (Hz)',
+                        color: '#00f5d4'
+                    },
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Uygunluk Skoru',
+                        color: '#00f5d4'
+                    },
+                    beginAtZero: true,
+                    max: 10,
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                }
+            }
+        }
+    });
+    
+    // Sensör Tipi Analizi
+    const sensorCount = {};
+    allDatasets.forEach(d =&gt; {
+        d.sensors.forEach(sensor =&gt; {
+            sensorCount[sensor] = (sensorCount[sensor] || 0) + 1;
+        });
+    });
+    
+    const sensorCtx = document.getElementById('sensorChart').getContext('2d');
+    new Chart(sensorCtx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(sensorCount),
+            datasets: [{
+                label: 'Kullanım Sayısı',
+                data: Object.values(sensorCount),
+                backgroundColor: 'rgba(0, 245, 212, 0.7)',
+                borderColor: '#00f5d4',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
+    
+    // Format Dağılımı
+    const formatCount = {};
+    allDatasets.forEach(d =&gt; {
+        d.format.forEach(format =&gt; {
+            formatCount[format] = (formatCount[format] || 0) + 1;
+        });
+    });
+    
+    const formatCtx = document.getElementById('formatChart').getContext('2d');
+    new Chart(formatCtx, {
+        type: 'polarArea',
+        data: {
+            labels: Object.keys(formatCount),
+            datasets: [{
+                data: Object.values(formatCount),
+                backgroundColor: [
+                    'rgba(0, 245, 212, 0.6)',
+                    'rgba(0, 187, 249, 0.6)',
+                    'rgba(254, 228, 64, 0.6)',
+                    'rgba(241, 91, 181, 0.6)',
+                    'rgba(6, 255, 165, 0.6)'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { family: 'Inter', size: 10 },
+                        padding: 10
+                    }
+                }
+            }
+        }
+    });
+    
+    // Lisans Türleri
+    const licenseCount = {};
+    allDatasets.forEach(d =&gt; {
+        licenseCount[d.license] = (licenseCount[d.license] || 0) + 1;
+    });
+    
+    const licenseCtx = document.getElementById('licenseChart').getContext('2d');
+    new Chart(licenseCtx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(licenseCount),
+            datasets: [{
+                data: Object.values(licenseCount),
+                backgroundColor: [
+                    'rgba(6, 255, 165, 0.8)',
+                    'rgba(0, 187, 249, 0.8)',
+                    'rgba(254, 228, 64, 0.8)',
+                    'rgba(241, 91, 181, 0.8)'
+                ],
+                borderWidth: 2,
+                borderColor: '#0f0f23'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: { family: 'Inter', size: 10 },
+                        padding: 10
+                    }
+                }
+            }
+        }
+    });
+    
+    console.log('%c Deprem Araştırma Projesi Dashboard v2.0 ', 'background: #00f5d4; color: #0f0f23; font-size: 16px; font-weight: bold; padding: 10px;');
+    console.log('%c Hazırlayan: Muhammed ŞARA ', 'background: #00bbf9; color: white; font-size: 12px; padding: 5px;');
+&lt;/script&gt;
+</code></pre>
+</body>
+</html>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2025-01-01T00:00:00.000Z">
+    <span>Last updated on</span>
+    Jan 1, 2025</time>
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        
+        <div class="max-w-prose print:hidden">
+  
+  
+
+  
+<div class="flex justify-center">
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/earthquake-detection/">Earthquake Detection</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/edge-ai/">Edge AI</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/sensor-fusion/">Sensor Fusion</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/data-analysis/">Data Analysis</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/disaster-response/">Disaster Response</a>
+  
+</div>
+
+
+  
+<section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fresearch%2Fearthquake-edge-detection%2F&amp;text=Earthquake&#43;Detection&#43;from&#43;Mobile&#43;%26&#43;Edge&#43;Devices"
+    title="X"
+    aria-label="X"
+    id="share-link-x"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fresearch%2Fearthquake-edge-detection%2F&amp;t=Earthquake&#43;Detection&#43;from&#43;Mobile&#43;%26&#43;Edge&#43;Devices"
+    title="Facebook"
+    aria-label="Facebook"
+    id="share-link-facebook"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+    
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="mailto:?subject=Earthquake%20Detection%20from%20Mobile%20%26%20Edge%20Devices&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fresearch%2Fearthquake-edge-detection%2F"
+    title="Email"
+    aria-label="Email"
+    id="share-link-email"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fresearch%2Fearthquake-edge-detection%2F&amp;title=Earthquake&#43;Detection&#43;from&#43;Mobile&#43;%26&#43;Edge&#43;Devices"
+    title="LinkedIn"
+    aria-label="LinkedIn"
+    id="share-link-linkedin"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="whatsapp://send?text=Earthquake&#43;Detection&#43;from&#43;Mobile&#43;%26&#43;Edge&#43;Devices%20http%3A%2F%2Flocalhost%3A1313%2Fresearch%2Fearthquake-edge-detection%2F"
+    title="WhatsApp"
+    aria-label="WhatsApp"
+    id="share-link-whatsapp"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m187.58 144.84-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40 88.1 88.1 0 0 0 88 88 40 40 0 0 0 40-40 8 8 0 0 0-4.42-7.16ZM152 176a72.08 72.08 0 0 1-72-72 24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51 56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74 23 11.48A24 24 0 0 1 152 176ZM128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24Zm0 192a87.87 87.87 0 0 1-44.06-11.81 8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216Z"/></svg>
+  </a>
+  
+</section>
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+
+<div class="flex pt-12 pb-4">
+  
+    
+    
+    
+    <img
+      class="mr-4 h-24 w-24 rounded-full"
+      srcset="/author/muhammed-sara/avatar_hu_8d29beed3bffb993.webp 96w, /author/muhammed-sara/avatar_hu_9a1e3c621d34a953.webp 192w, /author/muhammed-sara/avatar_hu_1a65ecc6a83db36c.webp 288w, /author/muhammed-sara/avatar_hu_dfb91ff73d0bfe4a.webp 384w"
+      sizes="96px"
+      src="/author/muhammed-sara/avatar_hu_8d29beed3bffb993.webp"
+      width="96"
+      height="96"
+      alt="Muhammed ŞARA"
+      loading="lazy"
+      />
+  
+  <div class="place-self-center">
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Authors
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      <span class="inline-block">
+        <a href="http://localhost:1313/" class="no-underline">
+        Muhammed ŞARA
+        </a>
+      </span></div>
+
+    
+    <div class="text-sm font-bold text-neutral-700 dark:text-neutral-300">
+    AI &amp; Computer Vision Specialist · PhD Candidate
+    </div>
+    
+
+
+    
+
+    <div class="text-2xl sm:text-lg pt-1">
+
+      
+<div class="flex flex-wrap text-neutral-500 dark:text-neutral-300">
+  
+    
+    
+    
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="mailto:muhammedsaraa@gmail.com"
+      
+      aria-label="At-Symbol"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://www.linkedin.com/in/muhammedsara"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Linkedin"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://github.com/muhammedsara"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Github"
+    ><svg style="height: 1em;" fill="currentColor" viewBox="3 3 18 18"><path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://x.com/muhammedsara0"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/X"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://scholar.google.com/citations?user=jJYux6EAAAAJ&amp;hl=tr&amp;oi=ao"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Academicons/Google-Scholar"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M343.759 106.662V79.43L363.524 64h-213.89L20.476 176.274h85.656a82.339 82.339 0 0 0-.219 6.225c0 20.845 7.22 38.087 21.672 51.861c14.453 13.797 32.252 20.648 53.327 20.648c4.923 0 9.75-.368 14.438-1.024c-2.907 6.5-4.374 12.523-4.374 18.142c0 9.875 4.499 20.43 13.467 31.642c-39.234 2.67-68.061 9.732-86.437 21.163c-10.531 6.5-19 14.704-25.39 24.531c-6.391 9.9-9.578 20.515-9.578 31.962c0 9.648 2.062 18.336 6.219 26.062c4.156 7.726 9.578 14.07 16.312 18.984c6.718 4.968 14.469 9.101 23.219 12.469c8.734 3.344 17.406 5.718 26.061 7.062A167.052 167.052 0 0 0 180.555 448c13.469 0 26.953-1.734 40.547-5.187c13.562-3.485 26.28-8.642 38.171-15.493c11.86-6.805 21.515-16.086 28.922-27.718c7.39-11.68 11.094-24.805 11.094-39.336c0-11.016-2.25-21.039-6.75-30.14c-4.468-9.073-9.938-16.542-16.452-22.345c-6.501-5.813-13-11.155-19.516-15.968c-6.5-4.845-12-9.75-16.468-14.813c-4.485-5.046-6.735-10.054-6.735-14.984c0-4.921 1.734-9.672 5.216-14.265c3.455-4.61 7.674-9.048 12.61-13.306c4.937-4.25 9.875-8.968 14.796-14.133c4.922-5.147 9.141-11.827 12.61-20.008c3.485-8.18 5.203-17.445 5.203-27.757c0-13.453-2.547-24.46-7.547-33.314c-.594-1.022-1.218-1.803-1.875-3.022l56.907-46.672v17.119c-7.393.93-6.624 5.345-6.624 10.635V245.96c0 5.958 4.875 10.834 10.834 10.834h3.989c5.958 0 10.833-4.875 10.833-10.834V117.293c0-5.277.778-9.688-6.561-10.63zm-107.36 222.48c1.14.75 3.704 2.78 7.718 6.038c4.05 3.243 6.797 5.695 8.266 7.414a443.553 443.553 0 0 1 6.376 7.547c2.813 3.375 4.718 6.304 5.718 8.734c1 2.477 2.016 5.461 3.047 8.946a38.27 38.27 0 0 1 1.485 10.562c0 17.048-6.564 29.68-19.656 37.859c-13.125 8.18-28.767 12.274-46.938 12.274c-9.187 0-18.203-1.093-27.063-3.196c-8.843-2.116-17.311-5.336-25.39-9.601c-8.078-4.258-14.577-10.204-19.5-17.797c-4.938-7.64-7.407-16.415-7.407-26.25c0-10.32 2.797-19.29 8.422-26.906c5.594-7.625 12.938-13.391 22.032-17.315c9.063-3.946 18.25-6.742 27.562-8.398a157.865 157.865 0 0 1 28.438-2.555c4.47 0 7.936.25 10.405.696c.455.219 3.032 2.07 7.735 5.563c4.704 3.462 7.625 5.595 8.75 6.384zm-3.359-100.579c-7.406 8.86-17.734 13.288-30.953 13.288c-11.86 0-22.298-4.764-31.266-14.312c-9-9.523-15.422-20.328-19.344-32.43c-3.937-12.109-5.906-23.984-5.906-35.648c0-13.694 3.596-25.352 10.781-34.976c7.187-9.65 17.5-14.485 30.938-14.485c11.875 0 22.374 5.038 31.437 15.157c9.094 10.085 15.61 21.413 19.517 33.968c3.922 12.54 5.873 24.53 5.873 35.984c0 13.446-3.702 24.61-11.076 33.454z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://orcid.org/"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Academicons/Orcid"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M336.62 194.538c-7.13-3.328-13.866-5.56-20.253-6.614c-6.365-1.095-16.574-1.612-30.71-1.612h-36.704v152.747h37.634c14.673 0 26.081-1.013 34.224-3.017c8.142-2.004 14.921-4.526 20.356-7.626a69.448 69.448 0 0 0 14.942-11.388c14.488-14.714 21.742-33.273 21.742-55.717c0-22.052-7.44-40.052-22.341-53.982c-5.498-5.166-11.822-9.444-18.89-12.793zM256 8C119.022 8 8 119.042 8 256s111.022 248 248 248s248-111.042 248-248S392.978 8 256 8Zm-82.336 357.513h-29.389V160.148h29.389zM158.95 138.696c-11.14 0-20.213-9.01-20.213-20.212c0-11.118 9.052-20.191 20.213-20.191c11.18 0 20.232 9.052 20.232 20.191a20.194 20.194 0 0 1-20.232 20.212zm241.386 163.597c-5.29 12.545-12.834 23.581-22.65 33.088c-9.982 9.837-21.597 17.194-34.844 22.196c-7.75 3.017-14.839 5.063-21.307 6.117c-6.49 1.013-18.828 1.509-37.076 1.509h-64.956V160.148h69.233c27.962 0 50.034 4.154 66.32 12.545c16.265 8.37 29.181 20.728 38.792 36.972c9.61 16.265 14.425 34.018 14.425 53.196c.023 13.765-2.666 26.908-7.936 39.432z"/></svg></a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+</div>
+
+      </div>
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2026 Muhammed ŞARA
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+<div id="hb-notification-container" class="fixed top-20 right-4 z-[9999] pointer-events-none" aria-live="polite" aria-atomic="true"></div>
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
